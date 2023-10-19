@@ -6,11 +6,9 @@ function DisplaySearchResult(searchQuery) {
             </div>
         )
     }
-    console.log(searchQuery.venues)
     return (
         <div>
             {searchQuery.venues.map((result) => {
-                console.log(result)
                 const { media, id, name, price } = result; 
                 return (
                     <div key={id} className='m-10'>
