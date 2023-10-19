@@ -31,8 +31,6 @@ function DisplayVenues() {
             })}
         </div>
     )
-
-    console.log(data);
 }
 
 export default DisplayVenues;
