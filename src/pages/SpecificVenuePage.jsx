@@ -1,7 +1,11 @@
-function SpecificVenuePage() {
+import DisplaySpecificVenue from "../components/DisplaySpecificVenue/DisplaySpecificVenue";
+
+function SpecificVenue() {
     return (
-      <div className="my-10">SpecificVenuePage</div>
+      <div>
+        <DisplaySpecificVenue />
+      </div>
     );
   }
   
-  export default SpecificVenuePage;
+  export default SpecificVenue;
