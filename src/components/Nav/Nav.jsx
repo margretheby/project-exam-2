@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import logOut from '../../functions/logOut/logout';
+import { accessToken } from '../../variables/localStorage';
 
 function Nav() {
     return (
@@ -8,10 +10,10 @@ function Nav() {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/profile'>Profile</Link>
+                    {accessToken ? <Link to='/profile'>Profile</Link> : ''}   
                 </li>
                 <li>
-                    <Link to='/login'>Login</Link>
+                    {accessToken ? <button onClick={logOut}>Logout</button> : <Link to='/login'>Login</Link>}
                 </li>
             </ul>
         </div>

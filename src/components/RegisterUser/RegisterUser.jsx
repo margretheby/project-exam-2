@@ -1,12 +1,14 @@
 import { registerUrl } from '../../variables/api.jsx';
 import { useState } from 'react';
+import saveToStorage from '../../functions/saveToStorage/saveToStorage.jsx';
+import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile.jsx';
 
 function RegisterForm() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         password: '',
-        avatar: null,
+        avatar: '',
         venueManager: false,
     });
 
@@ -30,7 +32,15 @@ function RegisterForm() {
             });
 
             if(response.ok) {
-                console.log('Success');
+                const loginData = await response.json();
+                const username = loginData.name;
+                const userAvatar = loginData.avatar;
+                const userManager = loginData.venueManager;
+                const accessToken = loginData.accessToken;
+
+                // Saving user information in localStorage
+                saveToStorage(accessToken, username, userAvatar, userManager)
+                relocateToProfile();
             } else {
                 console.log('Not success')
             }
@@ -78,10 +88,17 @@ function RegisterForm() {
                 <input 
                     type='checkbox' 
                     name='venueManager' 
-                    value={formData.venueManager}
+                    value={formData.venueManager === true}
                     onChange={handleChange}
-                    className="border" />
-                <label htmlFor="venueManager">Yes</label>
+                    className="border mr-2" />
+                <label htmlFor="venueManager" className='mr-2'>Yes</label>
+                <input 
+                    type='checkbox' 
+                    name='venueManager' 
+                    value={formData.venueManager === false}
+                    onChange={handleChange}
+                    className="border ml-2" />
+                <label htmlFor="venueManager" className='ml-2'>No</label>
             </div>
             <p>You can update this later on your profile page if you change your mind.</p>
             <button type='submit' className="border bg-gray-200">Registrer</button>

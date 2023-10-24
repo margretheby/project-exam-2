@@ -9,7 +9,8 @@ function Login() {
           <LoginForm />
         </div>
         <div>
-          <Link to="/registrer">Registrer</Link>
+          <p>Don't have an account?</p>
+          <Link to="/register">Register here.</Link>
         </div>
         
       </div>

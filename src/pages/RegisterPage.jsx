@@ -1,12 +1,20 @@
 import RegisterForm from "../components/RegisterUser/RegisterUser";
+import { Link } from 'react-router-dom';
 
-function Registrer() {
+function Register() {
     return (
       <div className="my-10">
-        Registrer
-        <RegisterForm />
+        <div>
+          Registrer
+          <RegisterForm />
+        </div>
+        <div>
+          <p>Already have an account?</p>
+          <Link to='/login'>Login here.</Link>
+        </div>
+
       </div>
     );
   }
   
-  export default Registrer;
+  export default Register;

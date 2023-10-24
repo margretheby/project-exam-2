@@ -1,6 +1,7 @@
 import { loginUrl } from '../../variables/api.jsx';
 import { useState } from 'react';
 import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile.jsx';
+import saveToStorage from '../../functions/saveToStorage/saveToStorage.jsx';
 
 function LoginForm() {
     const [formData, setFormData] = useState({
@@ -35,10 +36,7 @@ function LoginForm() {
                 const accessToken = loginData.accessToken;
 
                 // Saving user information in localStorage
-                localStorage.setItem('accessToken', accessToken);
-                localStorage.setItem('username', username);
-                localStorage.setItem('avatar', userAvatar);
-                localStorage.setItem('manager', userManager);
+                saveToStorage(accessToken, username, userAvatar, userManager)
                 
                 // Relocating when logging in.
                 relocateToProfile();
