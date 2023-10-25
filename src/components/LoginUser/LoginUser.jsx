@@ -55,6 +55,7 @@ function LoginForm() {
             <input 
                 type='email' 
                 name='email'
+                placeholder='example@stud.noroff.no'
                 value={formData.email}
                 onChange={handleChange} 
                 className="border" 
@@ -63,6 +64,7 @@ function LoginForm() {
             <input 
                 type='password' 
                 name='password' 
+                placeholder='********'
                 value={formData.password}
                 onChange={handleChange}
                 className="border" 

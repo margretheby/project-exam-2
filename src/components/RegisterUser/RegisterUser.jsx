@@ -56,6 +56,8 @@ function RegisterForm() {
             <input 
                 type='text' 
                 name='name' 
+                title='Your username must not contain punctuation symbols, other than underscore (_).'
+                placeholder='your_username'
                 value={formData.name}
                 onChange={handleChange}
                 className="border" 
@@ -64,6 +66,9 @@ function RegisterForm() {
             <input 
                 type='email' 
                 name='email'
+                title='You can only register with a Noroff e-mail. Example: studentname@noroff.no or studentname@stud.noroff.no'
+                placeholder='example@stud.noroff.no'
+                pattern='^[\w\-.]+@(stud\.)?noroff\.no$'
                 value={formData.email}
                 onChange={handleChange} 
                 className="border" 
@@ -72,6 +77,9 @@ function RegisterForm() {
             <input 
                 type='password' 
                 name='password' 
+                title='Your password must be at least 8 characters'
+                placeholder='********'
+                minLength='8'
                 value={formData.password}
                 onChange={handleChange}
                 className="border" 
@@ -80,6 +88,8 @@ function RegisterForm() {
             <input 
                 type='url' 
                 name='avatar' 
+                title='Your avatar must be a valid URL.'
+                placeholder='https://image.com/avatar.jpg'
                 value={formData.avatar}
                 onChange={handleChange}
                 className="border" />
@@ -88,14 +98,16 @@ function RegisterForm() {
                 <input 
                     type='checkbox' 
                     name='venueManager' 
-                    value={formData.venueManager === true}
+                    title='true'
+                    value={formData.venueManager}
                     onChange={handleChange}
                     className="border mr-2" />
                 <label htmlFor="venueManager" className='mr-2'>Yes</label>
                 <input 
                     type='checkbox' 
                     name='venueManager' 
-                    value={formData.venueManager === false}
+                    title='false'
+                    value={formData.venueManager}
                     onChange={handleChange}
                     className="border ml-2" />
                 <label htmlFor="venueManager" className='ml-2'>No</label>
