@@ -1,6 +1,10 @@
+import DisplayProfile from "../components/DisplayProfile/DisplayProfile";
+
 function Profile() {
     return (
-      <div className="my-10">Profile</div>
+      <div className="my-10">
+        <DisplayProfile />
+      </div>
     );
   }
   
