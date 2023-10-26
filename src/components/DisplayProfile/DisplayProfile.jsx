@@ -1,8 +1,12 @@
-import { profileDataUrl, profileBookingsUrl } from '../../variables/api.jsx'
+import { profileDataUrl, profileBookingsUrl, profileMediaUpdateUrl } from '../../variables/api.jsx'
+import { useState } from 'react';
 import GetData from '../GetData/GetData.jsx'
 import DisplayProfileBookings from '../DisplayProfileBookings/DisplayProfileBookings.jsx';
+import UpdateProfileMedia from '../UpdateProfileData/UpdateProfileData.jsx';
+import UpdateVenueManager from '../UpdateVenueManager/UpdateVenueManager.jsx';
 
 function DisplayProfile() {
+    console.log(profileMediaUpdateUrl)
     const avatarPlaceholder = '/icons/user.png'
 
     DisplayProfileBookings(profileBookingsUrl)
@@ -10,8 +14,28 @@ function DisplayProfile() {
     const { data } = GetData(profileDataUrl)
     const { name, avatar, venueManager, _count } = data;
 
+    const [formData, setFormData] = useState({
+        avatar: '',
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData, 
+            [name]: value,
+        });
+    };
+
+    const handleClick = async (e) => {
+        const avatar = formData.avatar;
+        console.log(avatar);
+        e.preventDefault();
+        UpdateProfileMedia({avatar});
+    }
+
+    console.log(data);
+
     if(_count) {
-        const { bookings } = _count;
         if(venueManager === true) {
             return (
                 <div className='w-48'>
@@ -22,8 +46,13 @@ function DisplayProfile() {
                     <div className='my-5'>
                         <form className='flex flex-col'>
                             <label htmlFor='avatar' >Update avatar (url)</label>
-                            <input type='url' name='avatar' className='border'/>
-                            <button><img src='/icons/update-avatar.png' className='h-8 bg-gray-200'/></button>
+                            <input 
+                                type='url' 
+                                name='avatar' 
+                                value={formData.avatar}
+                                onChange={handleChange}
+                                className='border'/>
+                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 bg-gray-2000' /></button>
                         </form>
                     </div>
                     <div className='my-5'>
@@ -41,7 +70,7 @@ function DisplayProfile() {
                     <div className='my-5'>
                         <div>
                             <h2>Your venues</h2>
-                            <button className='bg-gray-200'><img src='/icons/plus.png' /></button>
+                            <button className='bg-gray-200'><img src='/icons/plus.png' alt='Add new venue' /></button>
                         </div>
                         <div>
                             <p>VenueImage: VenueName</p>
@@ -64,8 +93,13 @@ function DisplayProfile() {
                     <div className='my-5'>
                         <form className='flex flex-col'>
                             <label htmlFor='avatar' >Update avatar (url)</label>
-                            <input type='url' name='avatar' className='border'/>
-                            <button><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 bg-gray-200' /></button>
+                            <input 
+                                type='url' 
+                                name='avatar' 
+                                value={formData.avatar}
+                                onChange={handleChange}
+                                className='border'/>
+                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 bg-gray-200' /></button>
                         </form>
                     </div>
                     <div className='my-5'>
@@ -83,7 +117,7 @@ function DisplayProfile() {
                     </div>
                     <div className='my-5'>
                         <p>Want to make your venue available for people to book?</p>
-                        <button className='bg-gray-200 my-5'>Become a manager.</button>
+                        <button onClick={UpdateVenueManager} className='bg-gray-200 my-5'>Become a manager.</button>
                     </div>
                 </div>
             )

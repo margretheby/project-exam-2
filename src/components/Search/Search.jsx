@@ -40,7 +40,7 @@ function Search() {
                     onKeyUp={handleSearch}>
 
                 </input>
-                <label htmlFor='search'><img src='/icons/search.png' className='w-8'/></label>
+                <label htmlFor='search'><img src='/icons/search.png' className='w-8' alt='Search'/></label>
             </form>
             <DisplaySearchResult venues={searchResult} />
         </div>
