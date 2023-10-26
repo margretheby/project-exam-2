@@ -2,7 +2,7 @@ import { accessToken } from '../../variables/localStorage.jsx'
 import { useState, useEffect } from 'react';
 
 function GetData(url) {
-    const [data, setData] = useState([]);
+    const [ data, setData ] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ throwError, setThrowError ] = useState(false);
 

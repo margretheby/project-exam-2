@@ -14,4 +14,5 @@ export const bookingsUrl = `${BASE_URL}bookings`
 // Endpoints for profile
 export const profilesUrl = `${BASE_URL}profiles`
 export const profileDataUrl = `${profilesUrl}/${username}`;
+export const profileMediaUpdateUrl = `${profileDataUrl}/media`
 export const profileBookingsUrl = `${profileDataUrl}/bookings`;

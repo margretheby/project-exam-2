@@ -2,6 +2,7 @@ import { registerUrl } from '../../variables/api.jsx';
 import { useState } from 'react';
 import saveToStorage from '../../functions/saveToStorage/saveToStorage.jsx';
 import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile.jsx';
+import UpdateVenueManager from '../UpdateVenueManager/UpdateVenueManager.jsx';
 
 function RegisterForm() {
     const [formData, setFormData] = useState({
@@ -100,15 +101,13 @@ function RegisterForm() {
                     name='venueManager' 
                     title='true'
                     value={formData.venueManager}
-                    onChange={handleChange}
+                    onChange={UpdateVenueManager}
                     className="border mr-2" />
                 <label htmlFor="venueManager" className='mr-2'>Yes</label>
                 <input 
                     type='checkbox' 
                     name='venueManager' 
                     title='false'
-                    value={formData.venueManager}
-                    onChange={handleChange}
                     className="border ml-2" />
                 <label htmlFor="venueManager" className='ml-2'>No</label>
             </div>
