@@ -1,6 +1,7 @@
 import useApi from "../../hooks/useApi";
 import { venueUrl } from '../../variables/api.jsx'
 import { useParams } from 'react-router-dom';
+import DisplayBookingsOfVenue from "../DisplayBookingsOfVenue/DisplayBookingsOfVenue";
 
 function DisplaySpecificVenue() {
     let { id } = useParams();
@@ -84,13 +85,7 @@ function DisplaySpecificVenue() {
                             <p> {pets ? 'yes' : 'no'}</p>
                         </div>
                     </div>
-                    <div id="calendar" className="w-48 mb-10">
-                        <h3>Available dates</h3>
-                        <div className="p-10 bg-gray-200">
-                            <p className="text-center">Calendar</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
+                    <DisplayBookingsOfVenue />
                 </div>
             )
         }
