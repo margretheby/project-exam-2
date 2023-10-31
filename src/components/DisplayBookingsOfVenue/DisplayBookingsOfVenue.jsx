@@ -1,54 +1,88 @@
 import { bookingsUrl } from '../../variables/api.jsx'
 import { accessToken } from '../../variables/localStorage.jsx'
+import Calendar from 'react-calendar';
+import BookingForm from '../BookingForm/BookingForm.jsx';
+import { useState, useEffect } from 'react';
+import 'react-calendar/dist/Calendar.css'
 
-async function fetchBookings() {
-    try {
-        const bookingData = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${accessToken}`
+function FetchBookings(method, url) {
+    const [ events, setEvents ] = useState([]);
+    const [ loading, setLoading ] = useState(false);
+    const [ throwError, setThrowError ] = useState(false);
+
+    useEffect(() => {
+        async function getBookings() {
+            try {
+                setLoading(true);
+                setThrowError(false);
+
+                const bookingData = {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${accessToken}`
+                    },
+                    body: JSON.stringify()
+                }
+        
+        
+                const response = await fetch(url, bookingData);
+                const result = await response.json();
+
+                
+
+                const eventList = result.map((booking) => ({
+                    start: new Date(booking.dateFrom),
+                    end: new Date(booking.dateTo),
+                    guests: booking.guests,
+                    venueId: booking.id
+                }));
+
+                setEvents(eventList);
+                setLoading(false);
+            } catch(error) {
+                setLoading(false);
+                setThrowError(true);
+                console.log(error);
             }
         }
 
+        getBookings();
+    }, [])
 
-        const response = await fetch(bookingsUrl, bookingData);
-        const result = await response.json();
 
-        console.log(result);
-
-    } catch(error) {
-        console.log(error);
-    }
+    return { events, loading, throwError };
 }
 
 function DisplayBookingsOfVenue() {
-    fetchBookings()
+    const getMethod = 'GET';
+    const { events, loading, throwError } = FetchBookings(getMethod, bookingsUrl);
+    if(loading) {
+        return <div>Loading ... </div>
+    }
+
+    if(!loading && throwError) {
+        return <div>Something went wrong...</div>
+    }
+
+    console.log(events);
+
     return (
         <div>
-            <div id="calendar" className="w-48 my-10">
-                <h3>Available dates</h3>
-                <div className="p-10 bg-gray-200">
-                    <p className="text-center">Calendar</p>
-                </div>
+            <div id="calendar" className="w-56 my-10">
+                <h3>Choose your stay: </h3>
+                <p>* = already booked</p>
                 <div>
-                    <form className='flex flex-col'>
-                        <div className='flex justify-between items-center'>
-                            <label htmlFor='dateFrom'>From: </label>
-                            <input type='date' name='dateFrom' className='border m-2'/>
-                        </div>
-                        <div className='flex justify-between items-center'>
-                            <label htmlFor='dateTo'>To: </label>
-                            <input type='date' name='dateTo' className='border m-2'/>
-                        </div>
-                        <div className='flex justify-between items-center'>
-                            <label htmlFor='guests'>Guests: </label>
-                            <input type='number' name='guests' className='border m-2 w-20 text-center' />
-                        </div>
-                       <button className='bg-gray-200'>Book now</button> 
-                    </form>
+                    <Calendar
+                        events={events}
+                        tileContent={({date, view}) => {
+                            if(events.some((event) => date >= event.start && date <= event.end )) {
+                                return <div className='bg-pink-300'>*</div>
+                            }
+                            return null;
+                        }} />
                 </div>
-                
+                <BookingForm />
             </div>
         </div>
     )

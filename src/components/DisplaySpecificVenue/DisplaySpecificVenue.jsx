@@ -33,7 +33,7 @@ function DisplaySpecificVenue() {
                             {
                             media.map((image) => {
                                 return (
-                                    <img src={media} alt={name} className='w-48' />
+                                    <img src={media} alt={name} className='w-56' />
                                 )
                             })}
                         </div>
@@ -46,7 +46,7 @@ function DisplaySpecificVenue() {
                             <a href="#calendar">Booking</a>
                         </div>
                     </div>
-                    <div className="w-48">
+                    <div className="w-56">
                         <h3>More information</h3>
                         <div className="flex justify-between">
                             <p>Max guests: </p>
@@ -57,7 +57,7 @@ function DisplaySpecificVenue() {
                             <p>{rating}</p>
                         </div>
                     </div>
-                    <div className="w-48">
+                    <div className="w-56">
                         <div className="flex justify-between">
                             <p className="mr-2">Location: </p>
                             <div className="text-right">
@@ -68,7 +68,7 @@ function DisplaySpecificVenue() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-48">
+                    <div className="w-56">
                         <div className="flex justify-between">
                             <p className="mr-2">Parking: </p>
                             <p> {parking ? 'yes' : 'no'}</p>
