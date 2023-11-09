@@ -1,5 +1,6 @@
 import { profileDataUrl } from '../../variables/api.jsx'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import GetData from '../GetData/GetData.jsx'
 import UpdateProfileMedia from '../UpdateProfileData/UpdateProfileData.jsx';
 import UpdateVenueManager from '../UpdateVenueManager/UpdateVenueManager.jsx';
@@ -30,7 +31,7 @@ function DisplayProfile() {
         UpdateProfileMedia({avatar});
     }
 
-    console.log(data);
+    console.log(data._count);
 
     if(_count) {
         if(venueManager === true) {
@@ -68,7 +69,7 @@ function DisplayProfile() {
                     <div className='my-5'>
                         <div>
                             <h2>Your venues</h2>
-                            <button className='bg-gray-200'><img src='/icons/plus.png' alt='Add new venue' /></button>
+                            <Link to='newvenue' className='bg-gray-200'><img src='/icons/plus.png' alt='Add new venue' className='w-10' /></Link>
                         </div>
                         <div>
                             <p>VenueImage: VenueName</p>

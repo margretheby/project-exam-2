@@ -4,6 +4,7 @@ import Login from './pages/LoginPage';
 import Register from './pages/RegisterPage';
 import Profile from './pages/ProfilePage';
 import SpecificVenue from './pages/SpecificVenuePage';
+import NewVenue from './pages/NewVenuePage';
 import Layout from './components/Layout/Layout.jsx';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/venues/:id' element={<SpecificVenue />} />
+          <Route path='/profile/newvenue' element={<NewVenue />} />
         </Route>
       </Routes>
     </div>
