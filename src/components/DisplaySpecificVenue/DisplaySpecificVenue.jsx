@@ -1,6 +1,7 @@
 import useApi from "../../hooks/useApi";
 import { venueUrl } from '../../variables/api.jsx'
 import { useParams } from 'react-router-dom';
+import DisplayBookingsOfVenue from "../DisplayBookingsOfVenue/DisplayBookingsOfVenue";
 
 function DisplaySpecificVenue() {
     let { id } = useParams();
@@ -32,7 +33,7 @@ function DisplaySpecificVenue() {
                             {
                             media.map((image) => {
                                 return (
-                                    <img src={media} alt={name} className='w-48' />
+                                    <img src={media} alt={name} className='w-56' />
                                 )
                             })}
                         </div>
@@ -45,7 +46,7 @@ function DisplaySpecificVenue() {
                             <a href="#calendar">Booking</a>
                         </div>
                     </div>
-                    <div className="w-48">
+                    <div className="w-56">
                         <h3>More information</h3>
                         <div className="flex justify-between">
                             <p>Max guests: </p>
@@ -56,7 +57,7 @@ function DisplaySpecificVenue() {
                             <p>{rating}</p>
                         </div>
                     </div>
-                    <div className="w-48">
+                    <div className="w-56">
                         <div className="flex justify-between">
                             <p className="mr-2">Location: </p>
                             <div className="text-right">
@@ -67,7 +68,7 @@ function DisplaySpecificVenue() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-48">
+                    <div className="w-56">
                         <div className="flex justify-between">
                             <p className="mr-2">Parking: </p>
                             <p> {parking ? 'yes' : 'no'}</p>
@@ -84,13 +85,7 @@ function DisplaySpecificVenue() {
                             <p> {pets ? 'yes' : 'no'}</p>
                         </div>
                     </div>
-                    <div id="calendar" className="w-48 mb-10">
-                        <h3>Available dates</h3>
-                        <div className="p-10 bg-gray-200">
-                            <p className="text-center">Calendar</p>
-                        </div>
-                        <button>Book now</button>
-                    </div>
+                    <DisplayBookingsOfVenue />
                 </div>
             )
         }

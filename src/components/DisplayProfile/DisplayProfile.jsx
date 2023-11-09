@@ -1,15 +1,12 @@
-import { profileDataUrl, profileBookingsUrl, profileMediaUpdateUrl } from '../../variables/api.jsx'
+import { profileDataUrl } from '../../variables/api.jsx'
 import { useState } from 'react';
 import GetData from '../GetData/GetData.jsx'
-import DisplayProfileBookings from '../DisplayProfileBookings/DisplayProfileBookings.jsx';
 import UpdateProfileMedia from '../UpdateProfileData/UpdateProfileData.jsx';
 import UpdateVenueManager from '../UpdateVenueManager/UpdateVenueManager.jsx';
+import DisplayProfileBookings from '../DisplayProfileBookings/DisplayProfileBookings.jsx'
 
 function DisplayProfile() {
-    console.log(profileMediaUpdateUrl)
     const avatarPlaceholder = '/icons/user.png'
-
-    DisplayProfileBookings(profileBookingsUrl)
 
     const { data } = GetData(profileDataUrl)
     const { name, avatar, venueManager, _count } = data;
@@ -38,7 +35,7 @@ function DisplayProfile() {
     if(_count) {
         if(venueManager === true) {
             return (
-                <div className='w-48'>
+                <div className='w-56'>
                     <div className='my-5'>
                         {avatar !== null ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
                         <h1>{name}</h1>
@@ -57,6 +54,7 @@ function DisplayProfile() {
                     </div>
                     <div className='my-5'>
                         <h2>Your bookings</h2>
+                        <DisplayProfileBookings />
                         <div>
                             <p>VenueImage</p>
                             <p>VenueName</p>
