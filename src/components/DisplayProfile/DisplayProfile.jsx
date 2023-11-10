@@ -5,6 +5,7 @@ import GetData from '../GetData/GetData.jsx'
 import UpdateProfileMedia from '../UpdateProfileData/UpdateProfileData.jsx';
 import UpdateVenueManager from '../UpdateVenueManager/UpdateVenueManager.jsx';
 import DisplayProfileBookings from '../DisplayProfileBookings/DisplayProfileBookings.jsx'
+import DisplayProfileVenues from '../DisplayProfileVenues/DisplayProfileVenues.jsx';
 
 function DisplayProfile() {
     const avatarPlaceholder = '/icons/user.png'
@@ -72,8 +73,7 @@ function DisplayProfile() {
                             <Link to='newvenue' className='bg-gray-200'><img src='/icons/plus.png' alt='Add new venue' className='w-10' /></Link>
                         </div>
                         <div>
-                            <p>VenueImage: VenueName</p>
-                            <p>VenueImage: VenueName</p>
+                            <DisplayProfileVenues />
                         </div>
                         <div>
                             <button className='bg-gray-200'>See all bookings</button>

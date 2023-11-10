@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logOut from '../../functions/logOut/logout';
 import { accessToken } from '../../variables/localStorage';
 

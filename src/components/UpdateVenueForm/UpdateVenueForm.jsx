@@ -1,8 +1,15 @@
 import { useForm, Controller } from 'react-hook-form';
-import createVenue from '../../functions/createVenue/createVenue';
+import Modal from 'react-modal'
+import updateVenue from '../../functions/updateVenue/updateVenue';
+import { venueUrl } from '../../variables/api.jsx'
+import { useParams } from 'react-router-dom'
+import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile'
 
-function CreateVenueForm() {
+function UpdateVenueForm({ isOpen, onRequestClose }) {
     const { handleSubmit, control } = useForm();
+    let { id } = useParams();
+    Modal.setAppElement('#root');
+    const specificVenueUrl = `${venueUrl}/${id}`;
 
 
     const onSubmit = async (data) => {
@@ -34,8 +41,10 @@ function CreateVenueForm() {
         };
         
         try {
-            const response = await createVenue(body);
-            console.log(response)
+            const response = await updateVenue(specificVenueUrl, body);
+            if(response) {
+                relocateToProfile();
+            }
             
         } catch (error) {
             console.log(error);
@@ -44,6 +53,12 @@ function CreateVenueForm() {
     }
 
     return (
+        <Modal
+            isOpen={isOpen}
+            onRequestClose={onRequestClose}
+            contentLabel="Update venue form modal"
+            ariaHideApp={false}
+            className='w-56 bg-white overflow-y-auto max-h-[80vh] mt-10'>
         <div className='w-56'>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex flex-col'>
@@ -198,12 +213,15 @@ function CreateVenueForm() {
                     </div>
                 </div>
                 <div className='flex flex-col'>
-                    <button type='submit' className='bg-gray-200'>Submit</button>
+                    <button type='submit' className='bg-gray-200'>Update Venue</button>
                 </div>
-                
+                <div className='flex flex-col'>
+                    <button onClick={onRequestClose} className='bg-red-400'>Cancel update</button>
+                </div>
             </form>
         </div>
+    </Modal>
     )
 }
 
-export default CreateVenueForm;
+export default UpdateVenueForm;

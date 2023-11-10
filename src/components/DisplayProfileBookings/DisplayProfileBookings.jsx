@@ -16,7 +16,7 @@ function DisplayProfileBookings() {
 
             {data.map((booking) => {
                 return (
-                    <div>
+                    <div key={booking.id}>
                         <h3 className="bg-pink-200">{booking.id}</h3>
                         <p>From: {booking.dateFrom}</p>
                         <p>To: {booking.dateTo}</p>

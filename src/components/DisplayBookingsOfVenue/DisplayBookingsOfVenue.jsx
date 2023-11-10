@@ -65,8 +65,6 @@ function DisplayBookingsOfVenue() {
         return <div>Something went wrong...</div>
     }
 
-    console.log(events);
-
     return (
         <div>
             <div id="calendar" className="w-56 my-10">
