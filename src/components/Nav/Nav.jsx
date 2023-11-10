@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import logOut from '../../functions/logOut/logout';
 import { accessToken } from '../../variables/localStorage';
 
@@ -7,13 +7,28 @@ function Nav() {
         <div>
             <ul>
                 <li>
-                    <Link to='/'>Home</Link>
+                    <NavLink to='/' className={({isActive, isPending}) => 
+                    [
+                        isPending ? "pending"  : "",
+                        isActive ? "bg-gray-200" : "",
+                    ].join(" ") 
+                    }>Home</NavLink>
                 </li>
                 <li>
-                    {accessToken ? <Link to='/profile'>Profile</Link> : ''}   
+                    {accessToken ? <NavLink to='/profile' className={({isActive, isPending}) => 
+                    [
+                        isPending ? "pending"  : "",
+                        isActive ? "bg-gray-200" : "",
+                    ].join(" ") 
+                    } >Profile</NavLink> : ''}   
                 </li>
                 <li>
-                    {accessToken ? <button onClick={logOut}>Logout</button> : <Link to='/login'>Login</Link>}
+                    {accessToken ? <button onClick={logOut}>Logout</button> : <NavLink to='/login' className={({isActive, isPending}) => 
+                    [
+                        isPending ? "pending"  : "",
+                        isActive ? "bg-gray-200" : "",
+                    ].join(" ") 
+                    }>Login</NavLink>}
                 </li>
             </ul>
         </div>

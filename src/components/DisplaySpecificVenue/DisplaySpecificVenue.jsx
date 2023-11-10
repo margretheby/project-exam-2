@@ -1,11 +1,24 @@
 import useApi from "../../hooks/useApi";
 import { venueUrl } from '../../variables/api.jsx'
+import { useState } from "react";
 import { useParams } from 'react-router-dom';
 import DisplayBookingsOfVenue from "../DisplayBookingsOfVenue/DisplayBookingsOfVenue";
+import UpdateVenueForm from "../UpdateVenueForm/UpdateVenueForm";
 
 function DisplaySpecificVenue() {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     let { id } = useParams();
     const { data, loading, throwError } = useApi(`${venueUrl}/${id}`);
+
+    const openModal = () => {
+      setModalIsOpen(true);
+    };
+  
+    const closeModal = () => {
+      setModalIsOpen(false);
+    };
+
+    
     if(loading || throwError) {
         return (
             <div>Loading ... </div>
@@ -29,6 +42,10 @@ function DisplaySpecificVenue() {
             return (
                 <div>
                     <div>
+                        <div>
+                            <button onClick={openModal}>Update Venue</button>
+                            <UpdateVenueForm isOpen={modalIsOpen} onRequestClose={closeModal} />
+                        </div>
                         <div>
                             {
                             media.map((image) => {

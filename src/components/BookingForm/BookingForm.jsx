@@ -38,8 +38,6 @@ function BookingForm() {
 
     };
 
-    console.log(formData);
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -70,7 +68,6 @@ function BookingForm() {
         }
     };
 
-    console.log(formData)
 
     return (
         <div>
