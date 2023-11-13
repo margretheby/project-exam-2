@@ -1,14 +1,20 @@
-import { bookingsUrl } from '../../variables/api.jsx'
-import { accessToken } from '../../variables/localStorage.jsx'
+import { venueUrl } from '../../variables/api.jsx'
+import { accessToken, username } from '../../variables/localStorage.jsx'
 import Calendar from 'react-calendar';
+import { useParams } from 'react-router-dom';
 import BookingForm from '../BookingForm/BookingForm.jsx';
 import { useState, useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css'
 
-function FetchBookings(method, url) {
+function FetchBookings() {
     const [ events, setEvents ] = useState([]);
     const [ loading, setLoading ] = useState(false);
     const [ throwError, setThrowError ] = useState(false);
+    const [ bookings, setBookings ] = useState([]);
+    const [ owner, setOwner ] = useState();
+
+    let { id } = useParams();
+    const venueBookingsUrl = `${venueUrl}/${id}?_bookings=true&_owner=true`;
 
     useEffect(() => {
         async function getBookings() {
@@ -17,7 +23,7 @@ function FetchBookings(method, url) {
                 setThrowError(false);
 
                 const bookingData = {
-                    method: method,
+                    method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${accessToken}`
@@ -26,18 +32,28 @@ function FetchBookings(method, url) {
                 }
         
         
-                const response = await fetch(url, bookingData);
+                const response = await fetch(venueBookingsUrl, bookingData);
                 const result = await response.json();
+
+                const venueBookings = result.bookings;
+                const venueOwner = result.owner.name;
+
 
                 
 
-                const eventList = result.map((booking) => ({
+                setOwner(venueOwner);
+                setBookings(venueBookings);
+
+                
+
+                const eventList = result.bookings.map((booking) => ({
                     start: new Date(booking.dateFrom),
                     end: new Date(booking.dateTo),
                     guests: booking.guests,
                     venueId: booking.id
                 }));
 
+                
                 setEvents(eventList);
                 setLoading(false);
             } catch(error) {
@@ -48,15 +64,14 @@ function FetchBookings(method, url) {
         }
 
         getBookings();
-    }, [])
+    }, [venueBookingsUrl])
 
 
-    return { events, loading, throwError };
+    return { events, bookings, owner, loading, throwError };
 }
 
 function DisplayBookingsOfVenue() {
-    const getMethod = 'GET';
-    const { events, loading, throwError } = FetchBookings(getMethod, bookingsUrl);
+    const { events, bookings, owner, loading, throwError } = FetchBookings();
     if(loading) {
         return <div>Loading ... </div>
     }
@@ -67,13 +82,31 @@ function DisplayBookingsOfVenue() {
 
     return (
         <div>
+            <div className='my-10'>
+                { owner === username ? (
+                    <div>
+                        <h3>Bookings:</h3>
+                        {bookings.map((booking) => {
+                            const { id, dateFrom, dateTo } = booking;
+                            const formattedDateFrom = dateFrom.split('T')[0];
+                            const formattedDateTo = dateTo.split('T')[0];
+
+                            return (
+                                <div key={id}>
+                                    <p>From {formattedDateFrom} to {formattedDateTo}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                ) : null }
+            </div>
             <div id="calendar" className="w-56 my-10">
                 <h3>Choose your stay: </h3>
                 <p>* = already booked</p>
                 <div>
                     <Calendar
                         events={events}
-                        tileContent={({date, view}) => {
+                        tileContent={({date}) => {
                             if(events.some((event) => date >= event.start && date <= event.end )) {
                                 return <div className='bg-pink-300'>*</div>
                             }
