@@ -1,5 +1,6 @@
 import useApi from "../../hooks/useApi";
 import { venueUrl } from '../../variables/api.jsx'
+import { username } from "../../variables/localStorage";
 import { useState } from "react";
 import { useParams } from 'react-router-dom';
 import DisplayBookingsOfVenue from "../DisplayBookingsOfVenue/DisplayBookingsOfVenue";
@@ -8,7 +9,7 @@ import UpdateVenueForm from "../UpdateVenueForm/UpdateVenueForm";
 function DisplaySpecificVenue() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     let { id } = useParams();
-    const { data, loading, throwError } = useApi(`${venueUrl}/${id}`);
+    const { data, loading, throwError } = useApi(`${venueUrl}/${id}?_bookings=true&_owner=true`);
 
     const openModal = () => {
       setModalIsOpen(true);
@@ -36,19 +37,22 @@ function DisplaySpecificVenue() {
 
     if(data) {
         console.log(data)
-        const { name, description, media, meta, price, maxGuests, rating, location } = data;
+        const { name, description, media, meta, price, maxGuests, rating, location, owner } = data;
         if(meta) {
             const { wifi, parking, breakfast, pets } = meta;
             return (
                 <div>
                     <div>
+                        {owner.name === username ? 
                         <div>
                             <button onClick={openModal}>Update Venue</button>
                             <UpdateVenueForm isOpen={modalIsOpen} onRequestClose={closeModal} />
                         </div>
+                        : null}
+                        
                         <div>
                             {
-                            media.map((image) => {
+                            media.map(() => {
                                 return (
                                     <img src={media} alt={name} className='w-56' />
                                 )
