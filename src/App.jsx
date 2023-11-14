@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Home from './pages/HomePage';
 import Login from './pages/LoginPage';
 import Register from './pages/RegisterPage';
@@ -20,6 +21,7 @@ function App() {
           <Route path='/profile/newvenue' element={<NewVenue />} />
         </Route>
       </Routes>
+      <ToastContainer className='w-48' />
     </div>
   );
 }

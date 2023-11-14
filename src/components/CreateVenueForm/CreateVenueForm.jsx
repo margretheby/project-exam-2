@@ -1,9 +1,10 @@
 import { useForm, Controller } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import createVenue from '../../functions/createVenue/createVenue';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CreateVenueForm() {
     const { handleSubmit, control } = useForm();
-
 
     const onSubmit = async (data) => {
         const rating = data.rating ? parseInt(data.rating) : 0;
@@ -35,12 +36,14 @@ function CreateVenueForm() {
         
         try {
             const response = await createVenue(body);
-            console.log(response)
+            console.log(response);
             
         } catch (error) {
-            console.log(error);
+            toast.error('Something went wrong, please try again.', {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000,
+            });
         }
-        
     }
 
     return (

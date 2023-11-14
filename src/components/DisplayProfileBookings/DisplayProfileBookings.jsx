@@ -13,13 +13,16 @@ function DisplayProfileBookings() {
 
     return (
         <div>
-
             {data.map((booking) => {
+                const { id, dateFrom, dateTo } = booking;
+                const formattedDateFrom = dateFrom.split('T')[0];
+                const formattedDateTo = dateTo.split('T')[0];
+
                 return (
-                    <div key={booking.id}>
-                        <h3 className="bg-pink-200">{booking.id}</h3>
-                        <p>From: {booking.dateFrom}</p>
-                        <p>To: {booking.dateTo}</p>
+                    <div key={booking.id} className='my-5'>
+                        <h3 className="bg-pink-200">{id}</h3>
+                        <p>From: {formattedDateFrom}</p>
+                        <p>To: {formattedDateTo}</p>
                     </div>
                 )
             })}
