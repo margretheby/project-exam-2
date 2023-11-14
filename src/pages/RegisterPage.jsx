@@ -1,4 +1,4 @@
-import RegisterForm from "../components/RegisterUser/RegisterUser";
+import RegisterUserForm from "../components/RegisterUserForm/RegisterUserForm";
 import { Link } from 'react-router-dom';
 
 function Register() {
@@ -6,7 +6,7 @@ function Register() {
       <div className="my-10">
         <div>
           Registrer
-          <RegisterForm />
+          <RegisterUserForm />
         </div>
         <div>
           <p>Already have an account?</p>
