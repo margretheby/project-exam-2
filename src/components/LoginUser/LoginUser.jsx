@@ -2,6 +2,8 @@ import { loginUrl } from '../../variables/api.jsx';
 import { useState } from 'react';
 import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile.jsx';
 import saveToStorage from '../../functions/saveToStorage/saveToStorage.jsx';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function LoginForm() {
     const [formData, setFormData] = useState({
@@ -37,11 +39,22 @@ function LoginForm() {
 
                 // Saving user information in localStorage
                 saveToStorage(accessToken, username, userAvatar, userManager)
+
+                // User feedback on login successfull
+                toast.success('You are logged in', {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 3000,
+                });
+                
                 
                 // Relocating when logging in.
-                relocateToProfile();
+                setTimeout(relocateToProfile, 3000);
+                
             } else {
-                console.log('Not success')
+                toast.error('Ooobs! Something went wrong, please try again.', {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 4000,
+                });
             }
         } catch (error) {
             console.log(error);

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import logOut from '../../functions/logOut/logout';
+import logOut from '../../functions/logOut/logOut';
 import { accessToken } from '../../variables/localStorage';
 
 function Nav() {
