@@ -1,37 +1,36 @@
 import { accessToken } from '../../variables/localStorage.jsx'
-import { profileMediaUpdateUrl } from '../../variables/api.jsx'
+import { bookingsUrl } from '../../variables/api.jsx'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-async function UpdateProfileMedia(avatar) {
+async function createBooking(booking) {
     try {
-        const response = await fetch(profileMediaUpdateUrl, {
-            method: 'PUT',
+        const response = await fetch(bookingsUrl, {
+            method: "POST",
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${accessToken}`
             },
-            body: JSON.stringify(avatar)
+            body: JSON.stringify(booking)
         });
 
-        const result = await response.json();
-
-        if(response.ok) {
-            toast.success('Success! Your avatar is updated.', {
+        
+        if (response.ok) {
+            toast.success('Success! Your booking was successful', {
                 position: toast.POSITION.TOP_CENTER,
-                autoClose: 3000,
-            });          
+                autoClose: 4000,
+            });
         } else {
+            console.log(response);
             toast.error('Ooobs! Something went wrong, please try again.', {
                 position: toast.POSITION.TOP_CENTER,
-                autoClose: 3000,
+                autoClose: 4000,
             });
         }
 
-        return result;
     } catch(error) {
         console.log(error);
     }
 }
 
-export default UpdateProfileMedia;
+export default createBooking;

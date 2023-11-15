@@ -4,6 +4,8 @@ import updateVenue from '../../functions/updateVenue/updateVenue';
 import { venueUrl } from '../../variables/api.jsx'
 import { useParams } from 'react-router-dom'
 import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UpdateVenueForm({ isOpen, onRequestClose }) {
     const { handleSubmit, control } = useForm();
@@ -43,7 +45,17 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
         try {
             const response = await updateVenue(specificVenueUrl, body);
             if(response) {
-                relocateToProfile();
+                toast.success('Success! Your venue is updated.', {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 4000,
+                });
+                setTimeout(relocateToProfile, 4000);
+            }
+            else {
+                toast.error('Ooobs! Something went wrong, please try again.', {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 4000,
+                });
             }
             
         } catch (error) {

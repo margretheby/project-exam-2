@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useParams } from 'react-router-dom';
 import DisplayBookingsOfVenue from "../DisplayBookingsOfVenue/DisplayBookingsOfVenue";
 import UpdateVenueForm from "../UpdateVenueForm/UpdateVenueForm";
+import DeleteVenueButton from "../DeleteVenue/DeleteVenue";
 
 function DisplaySpecificVenue() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -18,7 +19,6 @@ function DisplaySpecificVenue() {
     const closeModal = () => {
       setModalIsOpen(false);
     };
-
     
     if(loading || throwError) {
         return (
@@ -36,7 +36,6 @@ function DisplaySpecificVenue() {
     }
 
     if(data) {
-        console.log(data)
         const { name, description, media, meta, price, maxGuests, rating, location, owner } = data;
         if(meta) {
             const { wifi, parking, breakfast, pets } = meta;
@@ -45,8 +44,13 @@ function DisplaySpecificVenue() {
                     <div>
                         {owner.name === username ? 
                         <div>
-                            <button onClick={openModal}>Update Venue</button>
-                            <UpdateVenueForm isOpen={modalIsOpen} onRequestClose={closeModal} />
+                            <div>
+                                <button onClick={openModal}>Update Venue</button>
+                                <UpdateVenueForm isOpen={modalIsOpen} onRequestClose={closeModal} />
+                            </div>
+                            <div>
+                                <DeleteVenueButton />
+                            </div>
                         </div>
                         : null}
                         
@@ -64,7 +68,7 @@ function DisplaySpecificVenue() {
                             <p>{price} kr per night</p>
                         </div>
                         <div>
-                            <a href="#calendar">Booking</a>
+                            <a href="#calendar" className="bg-gray-200">Booking</a>
                         </div>
                     </div>
                     <div className="w-56">
