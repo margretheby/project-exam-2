@@ -1,110 +1,67 @@
-import { useState } from 'react';
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { bookingsUrl } from '../../variables/api.jsx';
-import { accessToken } from '../../variables/localStorage.jsx';
-
+import createBooking from '../../functions/createBooking/createBooking.jsx'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function BookingForm() {
+    const { handleSubmit, control } = useForm();
     let { id } = useParams();
 
-    const [formData, setFormData] = useState({
-        dateFrom: new Date(),
-        dateTo: new Date(),
-        venueId: id,
-        guests: 0,
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-
-        if(name === 'guests') {
-            setFormData({
-                ...formData,
-                [name]: parseInt(value, 10),
-            })
-        } else if(name === 'dateFrom' || 'dateTo') {
-            const date = new Date(value);
-            const year = date.getFullYear();
-            const month = String(date.getMonth() +1).padStart(2, '0');
-            const day = String(date.getDate()).padStart(2, '0');
-
-            const formattedDate = `${year}-${month}-${day}`
-
-            setFormData({
-                ...formData, 
-                [name]: formattedDate,
-            });
-        } 
-
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const bookingFormData = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${accessToken}`,
-                },
-                body: JSON.stringify(formData)
-            }
-
-            const response = await fetch(bookingsUrl, bookingFormData);
-
-            if(response.ok) {
-                const bookingData = await response.json();
-                /*const dateFrom = bookingData.dateFrom;
-                const dateTo = bookingData.dateTo;
-                const venueId = bookingData.venueId;
-                const guests = bookingData.guests; */
-                console.log(bookingData);
-
-            } /*else {
-                console.log('Not success')
-            } */
-        } catch (error) {
-            console.log(error);
+    const onSubmit = async (data) => {
+        const body = {
+            dateFrom: data.dateFrom,
+            dateTo: data.dateTo,
+            guests: parseInt(data.guests),
+            venueId: id,
         }
-    };
-
+        
+        try {
+            const response = await createBooking(body);
+            console.log(response);
+            
+        } catch (error) {
+            toast.error('Something went wrong, please try again.', {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000,
+            });
+        }
+    }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} className='flex flex-col'>
-                <div className='flex justify-between items-center'>
-                    <label htmlFor='dateFrom'>From: </label>
-                    <input 
-                        type='date' 
-                        name='dateFrom'
-                        value={formData.dateFrom}
-                        onChange={handleChange} 
-                        className='border m-2'/>
-                </div>
-                <div className='flex justify-between items-center'>
-                    <label htmlFor='dateTo'>To: </label>
-                    <input 
-                        type='date' 
-                        name='dateTo' 
-                        value={formData.dateTo}
-                        onChange={handleChange}
-                        className='border m-2'/>
-                </div>
-                <div className='flex justify-between items-center'>
-                    <label htmlFor='guests'>Guests: </label>
-                    <input 
-                        type='number' 
-                        name='guests' 
-                        value={formData.guests}
-                        onChange={handleChange}
-                        className='border m-2 w-20 text-center' />
-                </div>
-
-                <div className='flex justify-between items-center'>
-                    <button type='submit' className='bg-gray-200'>Book now</button> 
-                </div>
-                
-            </form>
+        <div className='w-56'>
+        <form onSubmit={handleSubmit(onSubmit)}>
+            <div className='flex justify-between'>
+                <label htmlFor="dateFrom">From:</label>
+                <Controller
+                name="dateFrom"
+                control={control}
+                defaultValue=""
+                render={({ field }) => <input {...field} type="date" className='border w-32' required />}
+                />
+            </div>
+            <div className='flex justify-between'>
+                <label htmlFor="dateTo">To: </label>
+                <Controller
+                name="dateTo"
+                control={control}
+                defaultValue=""
+                render={({ field }) => <input {...field} type="date" className='border w-32' required />}
+                />
+            </div>
+            <div className='flex justify-between'>
+                <label htmlFor="guests">Guests: </label>
+                <Controller
+                    name="guests"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                    <input {...field} type="number" className='border w-32' />
+                    )} />
+            </div>
+            <button type='submit' className='bg-gray-200'>Book now</button> 
+        </form>
         </div>
     )
 }
