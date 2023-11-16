@@ -27,19 +27,16 @@ function DisplayProfile() {
 
     const handleClick = async (e) => {
         const avatar = formData.avatar;
-        console.log(avatar);
         e.preventDefault();
         UpdateProfileMedia({avatar});
     }
-
-    console.log(data._count);
 
     if(_count) {
         if(venueManager === true) {
             return (
                 <div className='w-56'>
                     <div className='my-5'>
-                        {avatar !== null ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
                         <h1>{name}</h1>
                     </div>
                     <div className='my-5'>
@@ -86,7 +83,7 @@ function DisplayProfile() {
             return (
                 <div className='w-48'>
                     <div className='my-5'>
-                        {avatar !== null ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
                         <h1>{name}</h1>
                     </div>
                     <div className='my-5'>

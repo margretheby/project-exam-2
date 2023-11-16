@@ -1,6 +1,7 @@
 import { useForm, Controller } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import createVenue from '../../functions/createVenue/createVenue';
+import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile';
 import 'react-toastify/dist/ReactToastify.css';
 
 function CreateVenueForm() {
@@ -8,35 +9,34 @@ function CreateVenueForm() {
 
     const onSubmit = async (data) => {
         const rating = data.rating ? parseInt(data.rating) : 0;
-        const meta = {
-            wifi: !!data.wifi,
-            parking: !!data.parking,
-            breakfast: !!data.breakfast,
-            pets: !!data.pets,
-          };
-        console.log(meta.wifi)
-
 
         const body = {
             name: data.name,
             description: data.description,
-            media: [data.media],
+            media: data.media.length > 0 ? [data.media] : ['https://images.unsplash.com/photo-1582201943259-c891687a0a9a?q=80&w=2315&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
             price: parseInt(data.price),
             maxGuests: parseInt(data.maxGuests),
             rating: rating,
-            meta: meta,
+            meta: {
+                wifi: data.meta.wifi || false,
+                parking: data.meta.parking || false,
+                breakfast: data.meta.breakfast || false,
+                pets: data.meta.pets || false,
+              },
             location: {
-                address: data.address,
-                city: data.city,
-                zip: data.zip,
-                country: data.country,
-                continent: data.continent,
+                address: data.location.address,
+                city: data.location.city,
+                zip: data.location.zip,
+                country: data.location.country,
+                continent: data.location.continent,
             },
         };
         
         try {
             const response = await createVenue(body);
-            console.log(response);
+            if(response) {
+                setTimeout(relocateToProfile, 4000);
+            }
             
         } catch (error) {
             toast.error('Something went wrong, please try again.', {
@@ -74,7 +74,7 @@ function CreateVenueForm() {
                         control={control}
                         defaultValue={[]}
                         render={({ field }) => (
-                        <input {...field} type="text" className='border' />
+                        <input {...field} type="url" className='border' />
                         )} />
                 </div>
                 <div className='flex flex-col'>
@@ -114,7 +114,7 @@ function CreateVenueForm() {
                         control={control}
                         defaultValue={false}
                         render={({ field }) => (
-                            <input type="checkbox" {...field} checked={field.value} />
+                            <input type="checkbox" {...field} checked={field.value === true} />
                         )}
                         />
                     </div>
@@ -125,7 +125,7 @@ function CreateVenueForm() {
                         control={control}
                         defaultValue={false}
                         render={({ field }) => (
-                            <input type="checkbox" {...field} checked={field.value} />
+                            <input type="checkbox" {...field} checked={field.value === true} />
                         )}
                         />
                     </div>
@@ -136,7 +136,7 @@ function CreateVenueForm() {
                         control={control}
                         defaultValue={false}
                         render={({ field }) => (
-                            <input type="checkbox" {...field} checked={field.value} />
+                            <input type="checkbox" {...field} checked={field.value === true} />
                         )}
                         />
                     </div>
@@ -147,7 +147,7 @@ function CreateVenueForm() {
                         control={control}
                         defaultValue={false}
                         render={({ field }) => (
-                            <input type="checkbox" {...field} checked={field.value} />
+                            <input type="checkbox" {...field} checked={field.value === true} />
                         )}
                         />
                     </div>
@@ -160,7 +160,7 @@ function CreateVenueForm() {
                         name="location.address"
                         control={control}
                         defaultValue=""
-                        render={({ field }) => <input {...field} className='border' />}
+                        render={({ field }) => <input {...field} type="text" className='border' />}
                         />
                     </div>
                     <div className='flex flex-col'>
@@ -169,7 +169,7 @@ function CreateVenueForm() {
                         name="location.city"
                         control={control}
                         defaultValue=""
-                        render={({ field }) => <input {...field} className='border' />}
+                        render={({ field }) => <input {...field} type="text" className='border' />}
                         />
                     </div>
                     <div className='flex flex-col'>
@@ -178,7 +178,7 @@ function CreateVenueForm() {
                         name="location.zip"
                         control={control}
                         defaultValue=""
-                        render={({ field }) => <input {...field} className='border' />}
+                        render={({ field }) => <input {...field} type="text" className='border' />}
                         />
                     </div>
                     <div className='flex flex-col'>
@@ -187,7 +187,7 @@ function CreateVenueForm() {
                         name="location.country"
                         control={control}
                         defaultValue=""
-                        render={({ field }) => <input {...field} className='border' />}
+                        render={({ field }) => <input {...field} type="text" className='border' />}
                         />
                     </div>
                     <div className='flex flex-col'>
@@ -196,7 +196,7 @@ function CreateVenueForm() {
                         name="location.continent"
                         control={control}
                         defaultValue=""
-                        render={({ field }) => <input {...field} className='border' />}
+                        render={({ field }) => <input {...field} type="text" className='border' />}
                         />
                     </div>
                 </div>
