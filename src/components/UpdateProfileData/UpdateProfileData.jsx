@@ -2,7 +2,6 @@ import { accessToken } from '../../variables/localStorage.jsx'
 import { profileMediaUpdateUrl } from '../../variables/api.jsx'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile.jsx'
 
 async function UpdateProfileMedia(avatar) {
     try {
@@ -22,7 +21,7 @@ async function UpdateProfileMedia(avatar) {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose: 3000,
             });
-            setTimeout(window.location.href = '/profile', 3000)       
+            window.location.href = '/profile';      
         } else {
             toast.error('Ooobs! Something went wrong, please try again.', {
                 position: toast.POSITION.TOP_CENTER,

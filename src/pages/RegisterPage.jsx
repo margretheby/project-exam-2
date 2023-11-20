@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Register() {
     return (
-      <div className="my-10">
+      <div className="my-10 mx-4">
         <div>
           Registrer
           <RegisterUserForm />

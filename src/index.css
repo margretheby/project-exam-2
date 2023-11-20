@@ -2,3 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.bg-hero-pattern {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+body {
+    margin: 0 auto;
+}
+

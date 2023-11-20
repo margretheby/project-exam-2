@@ -18,8 +18,6 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
     const [ priceValue, setPriceValue ] = useState();
     const [ maxGuestsValue, setMaxGuestsValue ] = useState();
     const [ ratingValue, setRatingValue ] = useState();
-    const [ metaValue, setMetaValue ] = useState({});
-    const [ locationValue, setLocationValue] = useState({}); 
     const [ addressValue, setAddressValue ] = useState(); 
     const [ zipValue, setZipValue ] = useState(); 
     const [ cityValue, setCityValue ] = useState(); 
@@ -77,7 +75,6 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
         setPriceValue(Number(data.price));
         setMaxGuestsValue(Number(data.maxGuests));
         setRatingValue(Number(data.rating));
-        setMetaValue(data.meta || {});
 
         if(data.location) {
             setAddressValue(data.location.address);

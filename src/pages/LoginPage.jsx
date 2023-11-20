@@ -3,7 +3,7 @@ import LoginForm from '../components/LoginUser/LoginUser';
 
 function Login() {
     return (
-      <div className="my-10">
+      <div className="my-10 mx-4">
         <div>
           <h1>Login</h1>
           <LoginForm />
