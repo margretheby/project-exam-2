@@ -2,7 +2,7 @@ import DisplaySpecificVenue from "../components/DisplaySpecificVenue/DisplaySpec
 
 function SpecificVenue() {
     return (
-      <div className="mx-4">
+      <div className="mx-4 my-10">
         <DisplaySpecificVenue />
       </div>
     );

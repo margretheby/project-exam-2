@@ -40,7 +40,7 @@ function DisplaySpecificVenue() {
         if(meta) {
             const { wifi, parking, breakfast, pets } = meta;
             return (
-                <div className="mx-auto  flex flex-col justify-center">
+                <div className="mx-auto flex flex-col justify-center">
                     <div className="mx-auto flex flex-col justify-center">
                         {owner.name === username ? 
                         <div>
