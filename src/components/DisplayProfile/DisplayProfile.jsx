@@ -41,7 +41,7 @@ function DisplayProfile() {
                     </div>
                     <div className='my-5'>
                         <form className='flex flex-col'>
-                            <label htmlFor='avatar' >Update avatar (url)</label>
+                            <label htmlFor='avatar' className='text-sm'>Update avatar (url)</label>
                             <div className='flex items-center'>
                                 <input 
                                     type='url' 
@@ -83,7 +83,7 @@ function DisplayProfile() {
                     </div>
                     <div className='my-5'>
                         <form className='flex flex-col'>
-                            <label htmlFor='avatar' >Update avatar (url)</label>
+                            <label htmlFor='avatar' className='text-sm'>Update avatar (url)</label>
                             <div className='flex items-center'>
                                 <input 
                                     type='url' 
