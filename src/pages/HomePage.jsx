@@ -10,7 +10,7 @@ function Home() {
                 <h2 className="mt-2">You have come to the right place.</h2>
                 <div className="mt-32">
                   <a href='#search'>
-                    <img src='/icons/arrow.png' alt='See venues' className="w-10" />
+                    <img src='/icons/arrow.png' alt='See venues' className="w-20 p-5 animate-bounce" />
                   </a>
                   
                 </div>

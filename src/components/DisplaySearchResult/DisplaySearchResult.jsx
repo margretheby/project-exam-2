@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 function DisplaySearchResult(searchQuery) {
+    console.log(searchQuery);
     if (searchQuery.venues.length > 0 && searchQuery.venues.length < 100) {
         return (
             <div className="flex flex-wrap justify-center gap-5">
@@ -22,7 +23,7 @@ function DisplaySearchResult(searchQuery) {
                 })}
             </div>
         )
-    } else if(searchQuery.venues.length === 100) {
+    } else if(searchQuery.venues.length === 100 || searchQuery.venues.length === 0) {
         return null;
     } else {
         return (

@@ -82,10 +82,9 @@ function DisplayBookingsOfVenue() {
 
     return (
         <div>
-            <div className='my-10'>
+            <div className='my-16'>
                 { owner === username ? (
                     <div>
-                        <h3>Bookings:</h3>
                         {bookings.map((booking) => {
                             const { id, dateFrom, dateTo } = booking;
                             const formattedDateFrom = dateFrom.split('T')[0];
