@@ -101,14 +101,19 @@ function DisplayBookingsOfVenue() {
                 ) : null }
             </div>
             <div id="calendar" className="w-56 my-10">
-                <h3>Choose your stay: </h3>
-                <p>* = already booked</p>
-                <div>
+                <h3 className='text-xl text-[#FFEC58] text-center'>Available dates: </h3>
+                <div className='flex mb-2 justify-center text-sm'>
+                    <p className='text-black font-bold bg-[#FFEC58] px-2'>*</p>
+                    <p className='ml-2'> = already booked</p>
+                </div>
+                
+                <div className='text-black'>
                     <Calendar
+                        className='px-1'
                         events={events}
                         tileContent={({date}) => {
                             if(events.some((event) => date >= event.start && date <= event.end )) {
-                                return <div className='bg-pink-300'>*</div>
+                                return <div className='bg-[#FFEC58]'>*</div>
                             }
                             return null;
                         }} />

@@ -82,7 +82,7 @@ const LoginForm = () => {
               />
             )}
           />
-          <button type="submit" className="border bg-gray-200">
+          <button type="submit" className="my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">
             Login
           </button>
         </form>

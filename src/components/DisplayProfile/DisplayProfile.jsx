@@ -48,7 +48,7 @@ function DisplayProfile() {
                                 value={formData.avatar}
                                 onChange={handleChange}
                                 className='border'/>
-                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 bg-gray-2000' /></button>
+                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 my-2 bg-[#FFEC58] text-lg text-black border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-white hover:text-[#FFEC58]' /></button>
                         </form>
                     </div>
                     <div className='my-5'>
@@ -73,7 +73,7 @@ function DisplayProfile() {
                             <DisplayProfileVenues />
                         </div>
                         <div>
-                            <button className='bg-gray-200'>See all bookings</button>
+                            <button className='my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]'>See all bookings</button>
                         </div>
                     </div>
                     
@@ -95,7 +95,7 @@ function DisplayProfile() {
                                 value={formData.avatar}
                                 onChange={handleChange}
                                 className='border'/>
-                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 bg-gray-200' /></button>
+                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 my-2 bg-[#FFEC58] text-lg text-black border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-white hover:text-[#FFEC58]' /></button>
                         </form>
                     </div>
                     <div className='my-5'>
@@ -113,7 +113,7 @@ function DisplayProfile() {
                     </div>
                     <div className='my-5'>
                         <p>Want to make your venue available for people to book?</p>
-                        <button onClick={UpdateVenueManager} className='bg-gray-200 my-5'>Become a manager.</button>
+                        <button onClick={UpdateVenueManager} className='my-2 text-lg text-[#FFEC58] rounded hover:underline hover:text-white'>Become a manager.</button>
                     </div>
                 </div>
             )
