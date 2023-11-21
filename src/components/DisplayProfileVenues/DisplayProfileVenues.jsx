@@ -19,8 +19,10 @@ function DisplayProfileVenues() {
                     <div key={venue.id}>
                         <Link to={`/venues/${venue.id}`}>
                             <div className="flex items-center my-5">
-                                {venue.media.length >= 0 ? <img src={venue.media[0]} alt={`${venue.name}`} className='w-10' /> : "" }
-                                <h3 className="ml-3">{venue.name}</h3>
+                                {venue.media.length >= 0 ? <div className='h-12 w-12 bg-cover bg-center rounded'  style={{ backgroundImage: `url('${venue.media[0]}')` }}>
+                                
+                                </div> : "" }
+                                <h3 className="ml-4 text-sm">{venue.name}</h3>
                             </div>
                             
                         </Link>

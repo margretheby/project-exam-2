@@ -43,9 +43,9 @@ function DisplaySpecificVenue() {
                 <div className="mx-auto flex flex-col justify-center">
                     <div className="mx-auto flex flex-col justify-center">
                         {owner.name === username ? 
-                        <div>
+                        <div className="flex justify-between">
                             <div>
-                                <button onClick={openModal} className='my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]'>Update Venue</button>
+                                <button onClick={openModal} className='my-2 bg-[#FFEC58] text-sm text-black px-2 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]'>Update Venue</button>
                                 <UpdateVenueForm isOpen={modalIsOpen} onRequestClose={closeModal} />
                             </div>
                             <div>

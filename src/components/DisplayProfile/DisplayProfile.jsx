@@ -34,10 +34,10 @@ function DisplayProfile() {
     if(_count) {
         if(venueManager === true) {
             return (
-                <div className='w-56'>
-                    <div className='my-5'>
-                        {avatar !== '' ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
-                        <h1>{name}</h1>
+                <div className='w-48 flex flex-col justify-center mx-auto mb-20'>
+                    <div className='my-5 flex items-center'>
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-14 mr-4' /> : <img src={avatarPlaceholder} alt={name} className='w-14 mr-4' />}
+                        <h1 className='text-xl text-[#FFEC58] capitalize'>{name}</h1>
                     </div>
                     <div className='my-5'>
                         <form className='flex flex-col'>
@@ -49,20 +49,20 @@ function DisplayProfile() {
                                     value={formData.avatar}
                                     onChange={handleChange}
                                     className='border rounded h-7 w-36 mr-2'/>
-                                <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-white hover:text-[#FFEC58]' /></button>
+                                <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black rounded hover:bg-white' /></button>
                             </div>
                         </form>
                     </div>
                     <div className='my-5'>
-                        <h2>Your bookings</h2>
+                        <h2 className='text-[#FFEC58] text-md'>Your bookings</h2>
                         <div>
                             <DisplayProfileBookings />
                         </div>
                     </div>
                     <div className='my-5'>
-                        <div>
-                            <h2>Your venues</h2>
-                            <Link to='newvenue' className='bg-gray-200'><img src='/icons/plus.png' alt='Add new venue' className='w-10' /></Link>
+                        <div className='flex justify-between'>
+                            <h2 className='text-[#FFEC58] text-md'>Your venues</h2>
+                            <Link to='newvenue'><img src='/icons/plus.png' alt='Add new venue' className='h-6 p-1 bg-[#FFEC58] rounded hover:bg-white' /></Link>
                         </div>
                         <div>
                             <DisplayProfileVenues />
@@ -78,7 +78,7 @@ function DisplayProfile() {
             return (
                 <div className='w-48 flex flex-col justify-center mx-auto mb-20'>
                     <div className='my-5 flex items-center'>
-                        {avatar !== '' ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-10 mr-4' />}
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-14 mr-4' /> : <img src={avatarPlaceholder} alt={name} className='w-14 mr-4' />}
                         <h1 className='text-xl text-[#FFEC58] capitalize'>{name}</h1>
                     </div>
                     <div className='my-5'>
@@ -91,7 +91,7 @@ function DisplayProfile() {
                                     value={formData.avatar}
                                     onChange={handleChange}
                                     className='border rounded h-7 w-36 mr-2'/>
-                                <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-white hover:text-[#FFEC58]' /></button>
+                                <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black rounded hover:bg-white' /></button>
                             </div>
                         </form>
                     </div>

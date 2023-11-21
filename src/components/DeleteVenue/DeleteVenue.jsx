@@ -43,7 +43,7 @@ function DeleteVenueButton() {
 
     return (
         <div>
-            <button className='my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]' onClick={deleteVenue}>Delete venue</button>
+            <button className='my-2 bg-red-900 text-sm text-white px-2 border-2 border-red-900 rounded hover:bg-[#EFEFEF] hover:border-red-900 hover:text-red-900' onClick={deleteVenue}>Delete</button>
         </div>
     )
 }
