@@ -52,7 +52,7 @@ const LoginForm = () => {
     return (
       <div className="w-48">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-          <label htmlFor="email">E-mail *</label>
+          <label htmlFor="email" className='text-sm mt-5 mb-1'>E-mail</label>
           <Controller
             name="email"
             control={control}
@@ -62,12 +62,12 @@ const LoginForm = () => {
                 {...field}
                 type="email"
                 placeholder="example@stud.noroff.no"
-                className="border"
+                className="border rounded pl-1"
                 required
               />
             )}
           />
-          <label htmlFor="password">Password *</label>
+          <label htmlFor="password" className='text-sm mt-3 mb-1'>Password</label>
           <Controller
             name="password"
             control={control}
@@ -77,14 +77,16 @@ const LoginForm = () => {
                 {...field}
                 type="password"
                 placeholder="********"
-                className="border"
+                className="border rounded pl-1"
                 required
               />
             )}
           />
-          <button type="submit" className="my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">
-            Login
-          </button>
+          <div className='flex justify-center mt-5'>
+            <button type="submit" className="my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">
+              Login
+            </button>
+          </div>
         </form>
       </div>
     );

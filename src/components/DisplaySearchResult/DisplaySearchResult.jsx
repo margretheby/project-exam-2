@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 function DisplaySearchResult(searchQuery) {
-    console.log(searchQuery.venues.length);
     if (searchQuery.venues.length > 0 && searchQuery.venues.length < 100) {
         return (
             <div className="flex flex-wrap justify-center gap-5">

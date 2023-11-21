@@ -42,26 +42,21 @@ function DisplayProfile() {
                     <div className='my-5'>
                         <form className='flex flex-col'>
                             <label htmlFor='avatar' >Update avatar (url)</label>
-                            <input 
-                                type='url' 
-                                name='avatar' 
-                                value={formData.avatar}
-                                onChange={handleChange}
-                                className='border'/>
-                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 my-2 bg-[#FFEC58] text-lg text-black border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-white hover:text-[#FFEC58]' /></button>
+                            <div className='flex items-center'>
+                                <input 
+                                    type='url' 
+                                    name='avatar' 
+                                    value={formData.avatar}
+                                    onChange={handleChange}
+                                    className='border rounded h-7 w-36 mr-2'/>
+                                <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-white hover:text-[#FFEC58]' /></button>
+                            </div>
                         </form>
                     </div>
                     <div className='my-5'>
                         <h2>Your bookings</h2>
-                        <DisplayProfileBookings />
                         <div>
-                            <p>VenueImage</p>
-                            <p>VenueName</p>
-                            <div>
-                                <p>From: date</p>
-                                <p>To: date</p>
-                            </div>
-                            
+                            <DisplayProfileBookings />
                         </div>
                     </div>
                     <div className='my-5'>
@@ -81,39 +76,35 @@ function DisplayProfile() {
             )
         } else {
             return (
-                <div className='w-48'>
-                    <div className='my-5'>
-                        {avatar !== '' ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
-                        <h1>{name}</h1>
+                <div className='w-48 flex flex-col justify-center mx-auto mb-20'>
+                    <div className='my-5 flex items-center'>
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-10 mr-4' />}
+                        <h1 className='text-xl text-[#FFEC58] capitalize'>{name}</h1>
                     </div>
                     <div className='my-5'>
                         <form className='flex flex-col'>
                             <label htmlFor='avatar' >Update avatar (url)</label>
-                            <input 
-                                type='url' 
-                                name='avatar' 
-                                value={formData.avatar}
-                                onChange={handleChange}
-                                className='border'/>
-                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 my-2 bg-[#FFEC58] text-lg text-black border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-white hover:text-[#FFEC58]' /></button>
+                            <div className='flex items-center'>
+                                <input 
+                                    type='url' 
+                                    name='avatar' 
+                                    value={formData.avatar}
+                                    onChange={handleChange}
+                                    className='border rounded h-7 w-36 mr-2'/>
+                                <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-white hover:text-[#FFEC58]' /></button>
+                            </div>
                         </form>
                     </div>
                     <div className='my-5'>
-                        <h2>Your bookings</h2>
+                        <h2 className='text-[#FFEC58] text-md'>Your bookings</h2>
                         <div>
-                            <p>VenueImage</p>
-                            <p>VenueName</p>
-                            <div>
-                                <p>From: date</p>
-                                <p>To: date</p>
-                            </div>
-                            
+                            <DisplayProfileBookings />                          
                         </div>
                         
                     </div>
-                    <div className='my-5'>
-                        <p>Want to make your venue available for people to book?</p>
-                        <button onClick={UpdateVenueManager} className='my-2 text-lg text-[#FFEC58] rounded hover:underline hover:text-white'>Become a manager.</button>
+                    <div className='my-10 text-center'>
+                        <p className='text-sm'>Want to make your venue available for people to book?</p>
+                        <button onClick={UpdateVenueManager} className='my-2 text-lg font-bold text-[#FFEC58] rounded hover:underline hover:text-white'>Become a manager.</button>
                     </div>
                 </div>
             )

@@ -29,7 +29,7 @@ function RegisterUserForm() {
         <div className="w-48">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
             <div className='flex flex-col'>
-                <label htmlFor="name">Username *</label>
+                <label htmlFor="name" className='text-sm mt-5 mb-1'>Username *</label>
                 <Controller
                 name="name"
                 control={control}
@@ -37,14 +37,14 @@ function RegisterUserForm() {
                 render={({ field }) => 
                 <input {...field} 
                     type="text" 
-                    className='border' 
+                    className='border rounded pl-1' 
                     title='Your username must not contain punctuation symbols, other than underscore (_).'
                     placeholder='your_username' 
                     required />}
                 />
             </div>
             <div className='flex flex-col'>
-                <label htmlFor="email">E-mail *</label>
+                <label htmlFor="email" className='text-sm mt-5 mb-1'>E-mail *</label>
                 <Controller
                 name="email"
                 control={control}
@@ -52,7 +52,7 @@ function RegisterUserForm() {
                 render={({ field }) => 
                 <input {...field} 
                     type="email" 
-                    className='border' 
+                    className='border rounded pl-1' 
                     title='You can only register with a Noroff e-mail. Example: studentname@noroff.no or studentname@stud.noroff.no'
                     placeholder='example@stud.noroff.no'
                     pattern='^[\w\-.]+@(stud\.)?noroff\.no$' 
@@ -60,7 +60,7 @@ function RegisterUserForm() {
                 />
             </div>
             <div className='flex flex-col'>
-                <label htmlFor="password">Password *</label>
+                <label htmlFor="password" className='text-sm mt-5 mb-1'>Password *</label>
                 <Controller
                 name="password"
                 control={control}
@@ -68,7 +68,7 @@ function RegisterUserForm() {
                 render={({ field }) => 
                 <input {...field} 
                     type="password" 
-                    className='border' 
+                    className='border rounded pl-1' 
                     title='Your password must be at least 8 characters'
                     placeholder='********'
                     minLength='8' 
@@ -76,7 +76,7 @@ function RegisterUserForm() {
                 />
             </div>
             <div className='flex flex-col'>
-                <label htmlFor="avatar">Avatar (url)</label>
+                <label htmlFor="avatar" className='text-sm mt-5 mb-1'>Avatar (url)</label>
                 <Controller
                 name="avatar"
                 control={control}
@@ -84,13 +84,13 @@ function RegisterUserForm() {
                 render={({ field }) => 
                 <input {...field} 
                     type="url" 
-                    className='border' 
+                    className='border rounded pl-1' 
                     title='Your avatar must be a valid URL.'
                     placeholder='https://image.com/avatar.jpg' />}
                 />
             </div> 
-            <p>Do you wish to be a venue manager?</p>
-            <div className='w-24 flex justify-between'>
+            <p className='text-sm mt-5'>Do you wish to be a venue manager? </p>
+            <div className='w-24 flex justify-between mt-2'>
                         <label htmlFor='venueManager' className='mr-2'>Yes</label>
                         <Controller
                         name="venueManager"
@@ -101,8 +101,11 @@ function RegisterUserForm() {
                         )}
                         />   
                     </div>
-            <p>You can update this later on your profile page if you change your mind.</p>
-            <button type='submit' className="my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">Registrer</button>
+            <p className='text-sm mt-4'>You can update this later on your profile page if you change your mind.</p>
+            <div className='flex justify-center mt-5'>
+                <button type='submit' className="my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">Registrer</button>
+            </div>
+            
         </form>
     </div>
     )
