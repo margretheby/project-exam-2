@@ -42,7 +42,8 @@ function Search() {
                 </input>
                 <label htmlFor='search'><img src='/icons/search.png' className='w-8 ml-3' alt='Search'/></label>
             </form>
-            <DisplaySearchResult venues={searchResult} />
+            {searchQuery ? <DisplaySearchResult venues={searchResult} /> : null }
+            
         </div>
     )
 }

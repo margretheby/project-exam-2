@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
 function DisplaySearchResult(searchQuery) {
-    console.log(searchQuery);
-    if (searchQuery.venues.length > 0 && searchQuery.venues.length < 100) {
+    if (searchQuery.venues.length > 0) {
         return (
             <div className="flex flex-wrap justify-center gap-5">
                 {searchQuery.venues.map((result) => {
@@ -23,12 +22,10 @@ function DisplaySearchResult(searchQuery) {
                 })}
             </div>
         )
-    } else if(searchQuery.venues.length === 100 || searchQuery.venues.length === 0) {
-        return null;
     } else {
         return (
-            <div>
-                <p>No venues with that name.</p>
+            <div className='my-5'>
+                <p className='italic'>No venues found with that name.</p>
             </div>
         )
     }
