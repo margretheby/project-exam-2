@@ -6,11 +6,11 @@ import { venueUrl } from '../../variables/api.jsx'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import relocateToProfile from '../../functions/relocateToProfile/relocateToProfile'
+import { customStyleModal } from '../../variables/customStyleModal.jsx';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function UpdateVenueForm({ isOpen, onRequestClose }) {
-
     // Form value states from venue
     const [ nameValue, setNameValue ] = useState('');
     const [ descriptionValue, setDescriptionValue ] = useState('');
@@ -45,28 +45,25 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
       };
       const handleAddressChange = (e) => {
         setAddressValue(e.target.value)
-      }
+      };
       const handleZipChange = (e) => {
         setZipValue(e.target.value)
-      }
+      };
       const handleCityChange = (e) => {
         setCityValue(e.target.value)
-      }
-
+      };
       const handleCountryChange = (e) => {
         setCountryValue(e.target.value)
-      }
+      };
       const handleContinentChange = (e) => {
         setContinentValue(e.target.value)
-      }
+      };
     
-
     const { handleSubmit, control } = useForm();
     let { id } = useParams();
     Modal.setAppElement('#root');
     const specificVenueUrl = `${venueUrl}/${id}`;
     const { data, loading, throwError } = useApi(`${specificVenueUrl}?_bookings=true&_owner=true`);
-        
     
     useEffect(() => {
         setNameValue(data.name);
@@ -87,9 +84,7 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
     
     }, [data])
     
-
     const onSubmit = async (data) => {
-
         const body = {
             name: nameValue,
             description: descriptionValue,
@@ -110,9 +105,7 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
                 country: countryValue,
                 continent: continentValue,
             },
-        };
-
-                
+        };       
         
         try {
             const response = await updateVenue(specificVenueUrl, body);
@@ -136,8 +129,6 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
         
     }
 
-    
-
     if(loading || throwError) {
         return (
             <div>Loading ... </div>
@@ -153,9 +144,6 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
         )
     }
 
-
-    
-
     if(!loading && !throwError) {
         return (
             <Modal
@@ -163,7 +151,8 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
                 onRequestClose={onRequestClose}
                 contentLabel="Update venue form modal"
                 ariaHideApp={false}
-                className='bg-[#222222df] overflow-y-auto max-h-[80vh] mt-10'>
+                style={customStyleModal}
+                className='bg-[#222222dd] overflow-y-auto max-h-[80vh] mt-10'>
             <div className='flex flex-col justify-center items-center'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex flex-col'>

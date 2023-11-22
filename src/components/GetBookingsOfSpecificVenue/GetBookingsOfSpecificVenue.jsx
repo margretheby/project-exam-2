@@ -63,8 +63,6 @@ function FetchBookings() {
 
         getBookings();
     }, [venueBookingsUrl])
-    console.log(bookings)
-
 
     return { events, bookings, owner, loading, throwError };
 }
