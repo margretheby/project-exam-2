@@ -34,10 +34,10 @@ function DisplayProfile() {
     if(_count) {
         if(venueManager === true) {
             return (
-                <div className='w-48 flex flex-col justify-center mx-auto mb-20'>
+                <div className='w-48 flex flex-col justify-center items-center mx-auto mb-20 sm:w-[80%]'>
                     <div className='my-5 flex items-center'>
-                        {avatar !== '' ? <img src={avatar} alt={name} className='w-14 mr-4' /> : <img src={avatarPlaceholder} alt={name} className='w-14 mr-4' />}
-                        <h1 className='text-xl text-[#FFEC58] capitalize'>{name}</h1>
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-14 mr-4 sm:w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-14 mr-4 sm:w-20' />}
+                        <h1 className='text-xl text-[#FFEC58] capitalize sm:text-3xl'>{name}</h1>
                     </div>
                     <div className='my-5'>
                         <form className='flex flex-col'>
@@ -48,7 +48,7 @@ function DisplayProfile() {
                                     name='avatar' 
                                     value={formData.avatar}
                                     onChange={handleChange}
-                                    className='border rounded h-7 w-36 mr-2'/>
+                                    className='border rounded h-7 w-36 mr-2 sm:w-48'/>
                                 <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black rounded hover:bg-white' /></button>
                             </div>
                         </form>
@@ -73,10 +73,10 @@ function DisplayProfile() {
             )
         } else {
             return (
-                <div className='w-48 flex flex-col justify-center mx-auto mb-20'>
+                <div className='w-48 flex flex-col justify-center items-center mx-auto mb-20 sm:w-[80%]'>
                     <div className='my-5 flex items-center'>
-                        {avatar !== '' ? <img src={avatar} alt={name} className='w-14 mr-4' /> : <img src={avatarPlaceholder} alt={name} className='w-14 mr-4' />}
-                        <h1 className='text-xl text-[#FFEC58] capitalize'>{name}</h1>
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-14 mr-4 sm:w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-14 mr-4 sm:w-20' />}
+                        <h1 className='text-xl text-[#FFEC58] capitalize sm:text-3xl'>{name}</h1>
                     </div>
                     <div className='my-5'>
                         <form className='flex flex-col'>
@@ -87,7 +87,7 @@ function DisplayProfile() {
                                     name='avatar' 
                                     value={formData.avatar}
                                     onChange={handleChange}
-                                    className='border rounded h-7 w-36 mr-2'/>
+                                    className='border rounded h-7 w-36 mr-2 sm:w-48'/>
                                 <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black rounded hover:bg-white' /></button>
                             </div>
                         </form>
@@ -99,7 +99,7 @@ function DisplayProfile() {
                         </div>
                         
                     </div>
-                    <div className='my-10 text-center'>
+                    <div className='my-10 text-center sm:w-56'>
                         <p className='text-sm'>Want to make your venue available for people to book?</p>
                         <button onClick={UpdateVenueManager} className='my-2 text-lg font-bold text-[#FFEC58] rounded hover:underline hover:text-white'>Become a manager.</button>
                     </div>

@@ -12,34 +12,53 @@ function DisplayProfileBookings() {
         return <div>Something went wrong... </div>
     }
 
-    return (
-        <div>
+    console.log(data)
+    if(data.length < 1) {
+        return (
+            <div>
+                <p className="text-sm">You have not booked any stays yet.</p>
+                <div className="text-center mt-5">
+                    <Link to='/#search' className="text-[#FFEC58] font-bold">Click here to check out the venues.</Link>
+                </div>
+                
+            </div>
+        )
+    } else {
+            return (
+        <div className="md:w-96">
             {data.map((booking) => {
                 const { id, dateFrom, dateTo } = booking;
                 const formattedDateFrom = dateFrom.split('T')[0];
                 const formattedDateTo = dateTo.split('T')[0];
                 return (
-                    <div key={id} className='my-8'>
+                    <div key={id} className='mb-10'>
                         <Link to={`/venues/${booking.venue.id}`}>
+                            <div className="sm:flex sm:items-center sm:justify-between">
                             <div className="flex items-center mt-5">
                                 {booking.venue.media.length >= 0 ? <div className='h-12 w-12 bg-cover bg-center rounded'  style={{ backgroundImage: `url('${booking.venue.media[0]}')` }}>
                                 
                                 </div> : "" }
                                 <h3 className="ml-4 text-md">{booking.venue.name}</h3>
                             </div>
-                            <div className="mb-5 mt-1">
+                            <div className="mb-5 mt-1 sm:mb-0 sm:w-40">
                                 <div className="flex justify-between items-center">
-                                    <p className="text-sm">From:</p> <p className="mr-14 text-sm">{formattedDateFrom}</p>
+                                    <p className="text-sm">From:</p>
+                                    <p className="mr-14 text-sm sm:mr-1">{formattedDateFrom}</p>
                                 </div>
                                 <div  className="flex justify-between items-center">
-                                    <p className="text-sm">To:</p><p className="mr-14 text-sm"> {formattedDateTo}</p>
+                                    <p className="text-sm">To:</p>
+                                    <p className="mr-14 text-sm sm:mr-1"> {formattedDateTo}</p>
                                 </div>
+                            </div>
                             </div>
                         </Link>
                     </div>
                 )
             })}
         </div>)
+    }
+
+
 }
 
 export default DisplayProfileBookings;
