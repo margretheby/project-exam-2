@@ -17,16 +17,19 @@ function DisplayBookingsOfVenue() {
     return (
         <div>
             <div className='my-16'>
-                { owner === username ? (
+                { owner === username && bookings.length > 0 ? (
                     <div>
+                        <h2 className='text-lg text-[#FFEC58] text-center'>Bookings:</h2>
                         {bookings.map((booking) => {
                             const { id, dateFrom, dateTo } = booking;
                             const formattedDateFrom = dateFrom.split('T')[0];
                             const formattedDateTo = dateTo.split('T')[0];
 
                             return (
-                                <div key={id}>
-                                    <p>From {formattedDateFrom} to {formattedDateTo}</p>
+                                <div key={id} className='mt-2'>
+                                    <ul>
+                                        <li>From {formattedDateFrom} to {formattedDateTo}</li>
+                                    </ul>
                                 </div>
                             );
                         })}
