@@ -12,33 +12,38 @@ function Nav() {
 
     return (
         <div className='text-[#FFEC58] sm:text-white'>
-            <button onClick={toggleMenu}>
-                <img src='/icons/menu.png' alt='Navigation' className='w-8 mt-2' />
-            </button>
+            <div className='sm:hidden'>
+                <button onClick={toggleMenu}>
+                    <img src='/icons/menu.png' alt='Navigation' className='w-8 mt-2' />
+                </button>
+            </div>
+
             <ul className={`${
                 isMenuOpen ? 'block' : 'hidden'
-            }`}>
-                <li className='m-2'>
+            } sm:flex gap-1 `}>
+                <li className='m-2 sm:border sm:rounded sm:px-4'>
                     <NavLink to='/' className={({isActive, isPending}) => 
                     [
                         isPending ? "pending"  : "",
-                        isActive ? "underline" : "",
+                        isActive ? "underline text-[#FFEC58] sm:no-underline" : "",
                     ].join(" ") 
                     }>Home</NavLink>
                 </li>
-                <li className='m-2'>
-                    {accessToken ? <NavLink to='/profile' className={({isActive, isPending}) => 
-                    [
-                        isPending ? "pending"  : "",
-                        isActive ? "underline" : "",
-                    ].join(" ") 
-                    } >Profile</NavLink> : ''}   
-                </li>
-                <li className='m-2'>
+                {accessToken ? 
+                <li className='m-2 sm:border sm:rounded sm:px-4'>
+                    <NavLink to='/profile' className={({isActive, isPending}) => 
+                        [
+                            isPending ? "pending"  : "",
+                            isActive ? "underline text-[#FFEC58] sm:no-underline" : "",
+                        ].join(" ") 
+                        } >Profile
+                    </NavLink>
+                </li> : ''}   
+                <li className='m-2 sm:border sm:rounded sm:px-4'>
                     {accessToken ? <button onClick={logOut}>Logout</button> : <NavLink to='/login' className={({isActive, isPending}) => 
                     [
                         isPending ? "pending"  : "",
-                        isActive ? "underline" : "",
+                        isActive ? "underline text-[#FFEC58] sm:no-underline" : "",
                     ].join(" ") 
                     }>Login</NavLink>}
                 </li>

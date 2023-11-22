@@ -18,7 +18,6 @@ function DisplayProfileBookings() {
                 const { id, dateFrom, dateTo } = booking;
                 const formattedDateFrom = dateFrom.split('T')[0];
                 const formattedDateTo = dateTo.split('T')[0];
-
                 return (
                     <div key={id} className='my-8'>
                         <Link to={`/venues/${booking.venue.id}`}>
