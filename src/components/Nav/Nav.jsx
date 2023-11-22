@@ -21,7 +21,7 @@ function Nav() {
             <ul className={`${
                 isMenuOpen ? 'block' : 'hidden'
             } sm:flex gap-1 `}>
-                <li className='m-2 sm:border sm:rounded sm:px-4'>
+                <li className='m-2 hover:text-white hover:underline sm:border sm:rounded sm:px-4 sm:hover:text-[#FFEC58] sm:hover:no-underline sm:hover:border-[#FFEC58]'>
                     <NavLink to='/' className={({isActive, isPending}) => 
                     [
                         isPending ? "pending"  : "",
@@ -30,20 +30,20 @@ function Nav() {
                     }>Home</NavLink>
                 </li>
                 {accessToken ? 
-                <li className='m-2 sm:border sm:rounded sm:px-4'>
+                <li className='m-2 hover:text-white hover:underline sm:border sm:rounded sm:px-4 sm:hover:text-[#FFEC58] sm:hover:no-underline sm:hover:border-[#FFEC58]'>
                     <NavLink to='/profile' className={({isActive, isPending}) => 
                         [
                             isPending ? "pending"  : "",
-                            isActive ? "underline text-[#FFEC58] sm:no-underline" : "",
+                            isActive ? "underline text-[#FFEC58] sm:no-underline " : "",
                         ].join(" ") 
                         } >Profile
                     </NavLink>
                 </li> : ''}   
-                <li className='m-2 sm:border sm:rounded sm:px-4'>
+                <li className='m-2 hover:text-white hover:underline sm:border sm:rounded sm:px-4 sm:hover:text-[#FFEC58] sm:hover:no-underline sm:hover:border-[#FFEC58]'>
                     {accessToken ? <button onClick={logOut}>Logout</button> : <NavLink to='/login' className={({isActive, isPending}) => 
                     [
                         isPending ? "pending"  : "",
-                        isActive ? "underline text-[#FFEC58] sm:no-underline" : "",
+                        isActive ? "underline text-[#FFEC58] ] sm:no-underline" : "",
                     ].join(" ") 
                     }>Login</NavLink>}
                 </li>

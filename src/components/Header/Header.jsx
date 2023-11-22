@@ -8,7 +8,7 @@ function Header() {
                 <Nav />
             </div>
             <div className="mt-2 sm:order-1">
-                <NavLink to='/' className="text-3xl text-[#EFEFEF] brand">Holidaze</NavLink>
+                <NavLink to='/' className="text-3xl text-[#EFEFEF] brand hover:text-[#FFEC58]">Holidaze</NavLink>
             </div>
             <div className="sm:hidden">
                 <NavLink to='/profile' >
