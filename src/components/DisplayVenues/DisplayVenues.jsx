@@ -29,24 +29,29 @@ function DisplayVenues() {
     }
 
     return (
-        <div className="flex flex-wrap justify-center gap-5">
-            {data.map((venue) => {
-                const { media, id, name, price } = venue; 
-                return (
-                    <div key={id} className='my-10 max-w-[40%]'>
-                        <Link to={`/venues/${id}`}>
-                            <div className='h-32 w-32 bg-cover bg-center'  style={{ backgroundImage: `url('${media[0]}')` }}>
+        <div>
+            <div className="ml-10">
+                <h2 className="text-3xl text-[#FFEC58] mx-5">Venues</h2>
+            </div>
+            <div className="flex flex-wrap justify-center gap-5">
+                {data.map((venue) => {
+                    const { media, id, name, price } = venue; 
+                    return (
+                        <div key={id} className='my-10 max-w-[40%]'>
+                            <Link to={`/venues/${id}`}>
+                                <div className='h-32 w-32 bg-cover bg-center'  style={{ backgroundImage: `url('${media[0]}')` }}>
+                                    
+                                </div>
                                 
-                            </div>
-                            
-                            <p className="text-sm w-32">{name}</p>
-                            <div className="flex items-center justify-between">
-                                <p className="text-lg w-14">{price}</p>
-                                <p className="text-sm w-18"> kr per night</p>
-                            </div>
-                        </Link>
-                    </div>)
-            })}
+                                <p className="text-sm w-32">{name}</p>
+                                <div className="flex items-center justify-between">
+                                    <p className="text-lg w-14">{price}</p>
+                                    <p className="text-sm w-18"> kr per night</p>
+                                </div>
+                            </Link>
+                        </div>)
+                })}
+            </div>
         </div>
     )
 }

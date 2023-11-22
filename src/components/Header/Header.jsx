@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 function Header() {
     return (
-        <div className="flex justify-between items-top mx-4">
+        <div className="flex justify-between items-top mx-4 lg:max-w-[80%] lg:mx-auto">
             <div className="sm:order-2 sm:pt-2">
                 <Nav />
             </div>

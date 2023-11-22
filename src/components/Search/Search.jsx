@@ -29,7 +29,7 @@ function Search() {
     }
     return (
         <div>
-            <form className='flex justify-left pt-4'>
+            <form className='flex justify-left pt-4 ml-10'>
                 <input 
                     type='search'
                     name='search' 

@@ -16,45 +16,47 @@ function DisplayBookingsOfVenue() {
 
     return (
         <div>
-            <div className='my-16'>
-                { owner === username && bookings.length > 0 ? (
-                    <div>
-                        <h2 className='text-lg text-[#FFEC58] text-center'>Bookings:</h2>
-                        {bookings.map((booking) => {
-                            const { id, dateFrom, dateTo } = booking;
-                            const formattedDateFrom = dateFrom.split('T')[0];
-                            const formattedDateTo = dateTo.split('T')[0];
+            <div className='sm:flex sm:flex-col'>
+                <div className='my-16 sm:order-2 sm:mt-0 sm:mb-10'>
+                    { owner === username && bookings.length > 0 ? (
+                        <div>
+                            <h2 className='w-56 text-lg text-[#FFEC58] text-center'>Bookings:</h2>
+                            {bookings.map((booking) => {
+                                const { id, dateFrom, dateTo } = booking;
+                                const formattedDateFrom = dateFrom.split('T')[0];
+                                const formattedDateTo = dateTo.split('T')[0];
 
-                            return (
-                                <div key={id} className='mt-2'>
-                                    <ul>
-                                        <li>From {formattedDateFrom} to {formattedDateTo}</li>
-                                    </ul>
-                                </div>
-                            );
-                        })}
+                                return (
+                                    <div key={id} className='mt-2'>
+                                        <ul>
+                                            <li>From {formattedDateFrom} to {formattedDateTo}</li>
+                                        </ul>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    ) : null }
+                </div>
+                <div id="calendar" className="w-56 my-10 sm:order-1 sm:mt-5">
+                    <h3 className='text-xl text-[#FFEC58] text-center'>Available dates: </h3>
+                    <div className='flex mb-2 justify-center text-sm'>
+                        <p className='text-black font-bold bg-[#FFEC58] px-2'>*</p>
+                        <p className='ml-2'> = already booked</p>
                     </div>
-                ) : null }
-            </div>
-            <div id="calendar" className="w-56 my-10">
-                <h3 className='text-xl text-[#FFEC58] text-center'>Available dates: </h3>
-                <div className='flex mb-2 justify-center text-sm'>
-                    <p className='text-black font-bold bg-[#FFEC58] px-2'>*</p>
-                    <p className='ml-2'> = already booked</p>
+                    
+                    <div className='text-black'>
+                        <Calendar
+                            className='px-1'
+                            events={events}
+                            tileContent={({date}) => {
+                                if(events.some((event) => date >= event.start && date <= event.end )) {
+                                    return <div className='bg-[#FFEC58]'>*</div>
+                                }
+                                return null;
+                            }} />
+                    </div>
+                    <BookingForm />
                 </div>
-                
-                <div className='text-black'>
-                    <Calendar
-                        className='px-1'
-                        events={events}
-                        tileContent={({date}) => {
-                            if(events.some((event) => date >= event.start && date <= event.end )) {
-                                return <div className='bg-[#FFEC58]'>*</div>
-                            }
-                            return null;
-                        }} />
-                </div>
-                <BookingForm />
             </div>
         </div>
     )

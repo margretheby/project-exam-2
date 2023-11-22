@@ -2,7 +2,7 @@ import DisplaySpecificVenue from "../components/DisplaySpecificVenue/DisplaySpec
 
 function SpecificVenue() {
     return (
-      <div className="px-4 py-10  bg-gradient-to-t from-[#222222] to-[#222222aa]">
+      <div className="px-4 py-10 bg-gradient-to-t from-[#222222] to-[#222222aa]">
         <DisplaySpecificVenue />
       </div>
     );

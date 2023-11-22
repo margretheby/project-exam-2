@@ -3,7 +3,7 @@ import Search from "../components/Search/Search";
 
 function Home() {
     return (
-        <div className="mt-10 mx-4">
+        <div className="pt-10 px-4">
           <div className="h-screen">
             <div className="flex flex-col items-center text-center">
                 <h2 className="mt-28">Looking for accomodation for your next trip?</h2>
@@ -16,11 +16,10 @@ function Home() {
                 </div>
             </div>
           </div>
-          <div id='search' className="mx-5">
+          <div id='search' className="px-5">
               <Search />
           </div>
-          <div className="my-5">
-              <h2 className="text-3xl text-[#FFEC58] mx-5">Venues</h2>
+          <div className="py-5">
             <DisplayVenues /> 
           </div>
         </div>
