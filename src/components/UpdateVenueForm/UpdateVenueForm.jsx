@@ -287,7 +287,7 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
                                 name="location.zip"
                                 control={control}
                                 defaultValue=""
-                                render={({ field }) => <input {...field} type="text" className='border rounded pl-1 w-16 mr-1' />}
+                                render={({ field }) => <input {...field} type="text"  value={zipValue} onChange={handleZipChange} className='border rounded pl-1 w-16 mr-1' />}
                                 />
                             </div>
                             <div className='flex flex-col'>
@@ -296,7 +296,7 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
                                 name="location.city"
                                 control={control}
                                 defaultValue=""
-                                render={({ field }) => <input {...field} type="text" className='border rounded pl-1 w-36' />}
+                                render={({ field }) => <input {...field} type="text"  value={cityValue} onChange={handleCityChange} className='border rounded pl-1 w-36' />}
                                 />
                             </div>
                         </div>
