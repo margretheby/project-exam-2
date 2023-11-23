@@ -53,74 +53,77 @@ function DisplaySpecificVenue() {
                             </div>
                         </div>
                         : null}
-                        <div className="sm:flex sm:justify-center sm:gap-5 sm:mt-5">
-                            <div>
-                                {
-                                media.map(() => {
-                                    return (
-                                        <img src={media} alt={name} className='w-56 sm:w-72' />
-                                    )
-                                })}
-                            </div>
-                            <div>
-                                <div className="w-56 sm:w-72">
-                                    <h1 className="text-xl text-[#FFEC58] text-center sm:text-left sm:text-3xl sm:mb-4">{name}</h1>
-                                    <p className="text-sm">{description}</p>
-                                    <div className="text-center sm:text-left">
-                                        <p className="py-2 font-bold">{price} kr per night</p>
+                        <div className="sm:flex sm:flex-col">
+                            <div className="sm:flex sm:justify-center sm:gap-5 sm:mt-5">
+                                <div>
+                                    {
+                                    media.map(() => {
+                                        return (
+                                            <img src={media} alt={name} className='w-56 sm:w-[100%] lg:w-96' />
+                                        )
+                                    })}
+                                </div>
+                                <div>
+                                    <div className="w-56 sm:w-72">
+                                        <h1 className="text-xl text-[#FFEC58] text-center sm:text-left sm:text-3xl sm:mb-4">{name}</h1>
+                                        <p className="text-sm">{description}</p>
+                                        <div className="text-center sm:text-left">
+                                            <p className="py-2 font-bold">{price} kr per night</p>
+                                        </div>
+                                    </div>                            
+                                    <div className="w-56 mt-5 mb-10 text-center sm:text-left sm:mt-10">
+                                        <a href="#calendar" className="my-2 bg-[#FFEC58] text-lg text-black py-1 px-5 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">Booking</a>
                                     </div>
-                                </div>                            
-                                <div className="w-56 mt-5 mb-10 text-center sm:text-left sm:mt-10">
-                                    <a href="#calendar" className="my-2 bg-[#FFEC58] text-lg text-black py-1 px-5 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">Booking</a>
                                 </div>
                             </div>
-                        </div>
-                        <div className="sm:flex sm:justify-evenly">
-                            <div className="sm:order-2 md:justify-start">
-                                <div className="w-56">
-                                    <h3 className="text-xl text-[#FFEC58] text-center sm:mt-5">More information</h3>
-                                    <div className="flex justify-between text-sm">
-                                        <p>Max guests: </p>
-                                        <p>{maxGuests}</p>
+                            <div className="sm:flex sm:justify-center sm:gap-10 md:gap-20 lg:gap-24">
+                                <div className="sm:order-2 md:justify-start">
+                                    <div className="w-56 sm:w-72">
+                                        <h3 className="text-xl text-[#FFEC58] text-center sm:mt-5">More information</h3>
+                                        <div className="flex justify-between text-sm">
+                                            <p className="md:text-lg">Max guests: </p>
+                                            <p className="md:text-lg">{maxGuests}</p>
+                                        </div>
+                                        <div className="flex justify-between text-sm">
+                                            <p className="md:text-lg">Rating: </p>
+                                            <p className="md:text-lg">{rating}</p>
+                                        </div>
                                     </div>
-                                    <div className="flex justify-between text-sm">
-                                        <p>Rating: </p>
-                                        <p>{rating}</p>
+                                    <div className="w-56 sm:w-72">
+                                        <div className="flex justify-between my-5 text-sm">
+                                            <p className="mr-2">Location: </p>
+                                            <div className="text-right">
+                                                <p>{location.address}</p>
+                                                <p>{location.zip !== 'Unknown' ? location.zip : ''} {location.city !== 'Unknown' ? location.city : ''}</p>
+                                                <p>{location.country !== 'Unknown' ? location.country : ''}</p>
+                                                <p>{location.continent !== 'Unknown' ? location.continent : ''}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="w-56">
-                                    <div className="flex justify-between my-3  text-sm">
-                                        <p className="mr-2">Location: </p>
-                                        <div className="text-right">
-                                            <p>{location.address}</p>
-                                            <p>{location.zip !== 'Unknown' ? location.zip : ''} {location.city !== 'Unknown' ? location.city : ''}</p>
-                                            <p>{location.country !== 'Unknown' ? location.country : ''}</p>
-                                            <p>{location.continent !== 'Unknown' ? location.continent : ''}</p>
+                                    <div className="w-56 sm:w-72">
+                                        <div className="flex justify-between text-sm">
+                                            <p className="mr-2">Wifi: </p>
+                                            <p> {wifi ? 'yes' : 'no'}</p>
+                                        </div>
+                                        <div className="flex justify-between text-sm">
+                                            <p className="mr-2">Breakfast: </p><p> {breakfast ? 'yes' : 'no'}</p>
+                                        </div>
+                                        <div className="flex justify-between text-sm">
+                                            <p className="mr-2">Parking: </p>
+                                            <p> {parking ? 'yes' : 'no'}</p>
+                                        </div>
+                                        <div className="flex justify-between text-sm">
+                                            <p className="mr-2">Pets: </p>
+                                            <p> {pets ? 'yes' : 'no'}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="w-56">
-                                    <div className="flex justify-between text-sm">
-                                        <p className="mr-2">Wifi: </p>
-                                        <p> {wifi ? 'yes' : 'no'}</p>
-                                    </div>
-                                    <div className="flex justify-between text-sm">
-                                        <p className="mr-2">Breakfast: </p><p> {breakfast ? 'yes' : 'no'}</p>
-                                    </div>
-                                    <div className="flex justify-between text-sm">
-                                        <p className="mr-2">Parking: </p>
-                                        <p> {parking ? 'yes' : 'no'}</p>
-                                    </div>
-                                    <div className="flex justify-between text-sm">
-                                        <p className="mr-2">Pets: </p>
-                                        <p> {pets ? 'yes' : 'no'}</p>
-                                    </div>
+                                <div className="sm:order-1">
+                                    <DisplayBookingsOfVenue />
                                 </div>
                             </div>
-                            <div className="sm:order-1">
-                                <DisplayBookingsOfVenue />
-                            </div>
                         </div>
+
                             
                     </div>
                 </div>

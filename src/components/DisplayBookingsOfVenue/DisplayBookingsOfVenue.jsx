@@ -20,7 +20,7 @@ function DisplayBookingsOfVenue() {
                 <div className='my-16 sm:order-2 sm:mt-0 sm:mb-10'>
                     { owner === username && bookings.length > 0 ? (
                         <div>
-                            <h2 className='w-56 text-lg text-[#FFEC58] text-center'>Bookings:</h2>
+                            <h2 className='w-56 text-lg text-[#FFEC58] text-center  sm:w-72'>Bookings:</h2>
                             {bookings.map((booking) => {
                                 const { id, dateFrom, dateTo } = booking;
                                 const formattedDateFrom = dateFrom.split('T')[0];
@@ -37,7 +37,7 @@ function DisplayBookingsOfVenue() {
                         </div>
                     ) : null }
                 </div>
-                <div id="calendar" className="w-56 my-10 sm:order-1 sm:mt-5">
+                <div id="calendar" className="w-56 my-10 sm:order-1 sm:mt-5  sm:w-72">
                     <h3 className='text-xl text-[#FFEC58] text-center'>Available dates: </h3>
                     <div className='flex mb-2 justify-center text-sm'>
                         <p className='text-black font-bold bg-[#FFEC58] px-2'>*</p>

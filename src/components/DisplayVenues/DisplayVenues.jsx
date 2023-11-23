@@ -39,14 +39,12 @@ function DisplayVenues() {
                     return (
                         <div key={id} className='my-10 max-w-[40%]'>
                             <Link to={`/venues/${id}`}>
-                                <div className='h-32 w-32 bg-cover bg-center'  style={{ backgroundImage: `url('${media[0]}')` }}>
-                                    
+                                <div className='h-40 w-40 sm:h-60 sm:w-60 bg-cover bg-center'  style={{ backgroundImage: `url('${media[0]}')` }}> 
                                 </div>
-                                
-                                <p className="text-sm w-32">{name}</p>
+                                <p className="text-sm w-40 sm:w-60 sm:text-lg">{name}</p>
                                 <div className="flex items-center justify-between">
-                                    <p className="text-lg w-14">{price}</p>
-                                    <p className="text-sm w-18"> kr per night</p>
+                                    <p className="text-lg w-14 sm:w-32 sm:text-2xl">{price}</p>
+                                    <p className="text-sm text-right w-18 sm:w-28 sm:text-lg"> kr per night</p>
                                 </div>
                             </Link>
                         </div>)
