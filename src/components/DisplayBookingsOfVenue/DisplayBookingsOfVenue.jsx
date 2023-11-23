@@ -7,7 +7,12 @@ import FetchBookings from '../GetBookingsOfSpecificVenue/GetBookingsOfSpecificVe
 function DisplayBookingsOfVenue() {
     const { events, bookings, owner, loading, throwError } = FetchBookings();
     if(loading) {
-        return <div>Loading ... </div>
+        return (
+            <div className="flex justify-center items-center my-20">
+                <img src='/icons/loading.png' alt='Loading' className="w-10 animate-spin" />
+                <p className="ml-5 text-[#FFEC58]">Loading bookings ...</p>
+            </div>
+        )
     }
 
     if(!loading && throwError) {

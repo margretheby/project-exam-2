@@ -129,13 +129,15 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
         
     }
 
-    if(loading || throwError) {
+    if(loading) {
         return (
-            <div>Loading ... </div>
+            <div className="flex justify-center items-center">
+                <img src='/icons/loading.png' alt='Loading' className="w-6 animate-spin" />
+            </div>
         )
     }
 
-    if(throwError) {
+    if(!loading && throwError) {
         console.log(throwError);
         return (
             <div>

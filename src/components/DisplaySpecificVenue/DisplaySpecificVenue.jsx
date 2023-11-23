@@ -20,13 +20,15 @@ function DisplaySpecificVenue() {
       setModalIsOpen(false);
     };
     
-    if(loading || throwError) {
+    if(loading) {
         return (
-            <div>Loading ... </div>
+            <div className="flex justify-center items-center my-20">
+                <img src='/icons/loading.png' alt='Loading' className="w-10 animate-spin" />
+            </div>
         )
     }
 
-    if(throwError) {
+    if(!loading && throwError) {
         console.log(throwError);
         return (
             <div>

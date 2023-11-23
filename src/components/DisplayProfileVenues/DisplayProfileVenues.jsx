@@ -6,7 +6,12 @@ function DisplayProfileVenues() {
     const { data, loading, throwError } = GetData(profileVenuesUrl)
     
     if (loading) {
-        return <div>Loading...</div>
+        return (
+            <div className="flex justify-center items-center my-20">
+                <img src='/icons/loading.png' alt='Loading' className="w-10 animate-spin" />
+                <p className="ml-5 text-[#FFEC58]">Loading your venues ...</p>
+            </div>
+        )
     }
     if(!loading && throwError) {
         return <div>Something went wrong... </div>

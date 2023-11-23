@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom';
 
 function DisplayVenues() {
     const { data, loading, throwError } = useApi(venueUrl);
-    if(loading || throwError) {
+    if(loading) {
         return (
-            <div>Loading ... </div>
+            <div className="flex justify-center items-center my-20">
+                <img src='/icons/loading.png' alt='Loading' className="w-10 animate-spin" />
+                <p className="ml-5 text-[#FFEC58]">Loading venues ...</p>
+            </div>
         )
     }
 
@@ -19,7 +22,7 @@ function DisplayVenues() {
         );
     }
 
-    if(throwError) {
+    if(!loading && throwError) {
         console.log(throwError);
         return (
             <div>
@@ -37,9 +40,9 @@ function DisplayVenues() {
                 {data.map((venue) => {
                     const { media, id, name, price } = venue; 
                     return (
-                        <div key={id} className='my-10 max-w-[40%]'>
+                        <div key={id} className='my-10 max-w-[40%] hover:bg-[#050505]'>
                             <Link to={`/venues/${id}`}>
-                                <div className='h-40 w-40 sm:h-60 sm:w-60 bg-cover bg-center'  style={{ backgroundImage: `url('${media[0]}')` }}> 
+                                <div className='h-40 w-40 sm:h-60 sm:w-60 bg-cover bg-center opacity-95 hover:opacity-100'  style={{ backgroundImage: `url('${media[0]}')` }}> 
                                 </div>
                                 <p className="text-sm w-40 sm:w-60 sm:text-lg">{name}</p>
                                 <div className="flex items-center justify-between">
