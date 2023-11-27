@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import DisplayBookingsOfVenue from "../DisplayBookingsOfVenue/DisplayBookingsOfVenue";
 import UpdateVenueForm from "../UpdateVenueForm/UpdateVenueForm";
 import DeleteVenueButton from "../DeleteVenue/DeleteVenue";
+import ImageGallery from "react-image-gallery";
 
 function DisplaySpecificVenue() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -58,12 +59,17 @@ function DisplaySpecificVenue() {
                         <div className="sm:flex sm:flex-col">
                             <div className="sm:flex sm:justify-center sm:gap-5 sm:mt-5">
                                 <div>
-                                    {
-                                    media.map(() => {
-                                        return (
-                                            <img src={media} alt={name} className='w-56 sm:w-[100%] lg:w-96' />
-                                        )
-                                    })}
+                                    <div className="w-80">
+                                        {(media.length > 1 ? <ImageGallery items={
+                                            media.map((image) => {
+                                                const imageObject = {original: image}
+                                                return imageObject;
+                                            })
+                                        } /> : 
+                                            <img src={media} alt={name} className='w-56 sm:w-[100%] lg:w-96' />    
+                                         )}
+
+                                    </div>
                                 </div>
                                 <div>
                                     <div className="w-56 sm:w-72">

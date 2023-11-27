@@ -17,7 +17,6 @@ function DisplayProfileBookings() {
         return <div>Something went wrong... </div>
     }
 
-    console.log(data)
     if(data.length < 1) {
         return (
             <div>
