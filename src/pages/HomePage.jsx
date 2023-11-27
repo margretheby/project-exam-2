@@ -1,13 +1,23 @@
 import DisplayVenues from "../components/DisplayVenues/DisplayVenues";
 import Search from "../components/Search/Search";
+import { Helmet } from 'react-helmet';
 
 function Home() {
     return (
         <div className="pt-10 px-4">
+          <div className="application">
+            <Helmet>
+              <meta charset="utf-8" />
+              <link rel="icon" href="icons/loading.png" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>Home | Holidaze</title>
+                <meta name="description" content="Holidaze will help you find the right accommodation for your next trip. Book your next stay at one of our amazing venues." />
+            </Helmet>
+          </div>
           <div className="h-screen">
             <div className="flex flex-col items-center text-center">
               <div className="mt-28 bg-gradient-to-t from-[#222222aa] to-[#222222aa] sm:bg-none">
-                <h2 className=" sm:text-2xl">Looking for accomodation for your next trip?</h2>
+                <h2 className=" sm:text-2xl">Looking for accommodation for your next trip?</h2>
                 <h2 className="mt-2 sm:text-2xl">You have come to the right place.</h2>
               </div>
 

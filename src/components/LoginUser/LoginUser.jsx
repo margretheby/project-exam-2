@@ -20,10 +20,10 @@ const LoginForm = () => {
   
         if (response.ok) {
           const loginData = await response.json();
-          const { name: username, avatar: userAvatar, venueManager, accessToken } = loginData;
+          const { name: username, avatar: userAvatar, accessToken } = loginData;
   
           // Saving user information in localStorage
-          saveToStorage(accessToken, username, userAvatar, venueManager);
+          saveToStorage(accessToken, username, userAvatar);
   
           // User feedback on login successful
           toast.success('You are logged in', {

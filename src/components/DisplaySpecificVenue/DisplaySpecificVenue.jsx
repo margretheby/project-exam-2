@@ -7,6 +7,7 @@ import DisplayBookingsOfVenue from "../DisplayBookingsOfVenue/DisplayBookingsOfV
 import UpdateVenueForm from "../UpdateVenueForm/UpdateVenueForm";
 import DeleteVenueButton from "../DeleteVenue/DeleteVenue";
 import ImageGallery from "react-image-gallery";
+import { Helmet } from 'react-helmet';
 
 function DisplaySpecificVenue() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -44,6 +45,15 @@ function DisplaySpecificVenue() {
             const { wifi, parking, breakfast, pets } = meta;
             return (
                 <div className="mx-auto flex flex-col justify-center sm:w-[80%]">
+                    <div className='application'>
+                        <Helmet>
+                            <meta charset="utf-8" />
+                            <link rel="icon" href="icons/loading.png" />
+                            <meta name="viewport" content="width=device-width, initial-scale=1" />
+                            <title>{name} | Holidaze</title>
+                            <meta name="description" content={description} />
+                        </Helmet>
+                    </div>
                     <div className="mx-auto flex flex-col justify-center sm:m-2">
                         {owner.name === username ? 
                         <div className="flex justify-between sm:justify-end">
