@@ -70,7 +70,7 @@ function DisplaySpecificVenue() {
                             <div className="sm:flex sm:justify-center sm:gap-5 sm:mt-5">
                                 <div>
                                     <div className="w-80">
-                                        {(media.length > 1 ? <ImageGallery items={
+                                        {(media.length > 1 ? <ImageGallery autoPlay={true} items={
                                             media.map((image) => {
                                                 const imageObject = {original: image}
                                                 return imageObject;
