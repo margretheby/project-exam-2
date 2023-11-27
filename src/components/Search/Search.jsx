@@ -29,20 +29,21 @@ function Search() {
     }
     return (
         <div>
-            <form>
+            <form className='flex justify-left pt-4 ml-10'>
                 <input 
                     type='search'
                     name='search' 
-                    placeholder='Search' 
-                    className='border'
+                    placeholder='Search for venues' 
+                    className='border rounded w-48 text-black'
                     onChange={(e) => setSearchQuery(e.target.value)}
                     value={searchQuery}
                     onKeyUp={handleSearch}>
 
                 </input>
-                <label htmlFor='search'><img src='/icons/search.png' className='w-8' alt='Search'/></label>
+                <label htmlFor='search'><img src='/icons/search.png' className='w-8 ml-3' alt='Search'/></label>
             </form>
-            <DisplaySearchResult venues={searchResult} />
+            {searchQuery ? <DisplaySearchResult venues={searchResult} /> : null }
+            
         </div>
     )
 }

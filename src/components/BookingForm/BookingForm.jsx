@@ -30,7 +30,7 @@ function BookingForm() {
     }
 
     return (
-        <div className='w-56'>
+        <div className='w-56 mt-3'>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className='flex justify-between'>
                 <label htmlFor="dateFrom">From:</label>
@@ -38,16 +38,16 @@ function BookingForm() {
                 name="dateFrom"
                 control={control}
                 defaultValue=""
-                render={({ field }) => <input {...field} type="date" className='border w-32' required />}
+                render={({ field }) => <input {...field} type="date" className='border w-32 rounded' required />}
                 />
             </div>
-            <div className='flex justify-between'>
+            <div className='flex justify-between my-1'>
                 <label htmlFor="dateTo">To: </label>
                 <Controller
                 name="dateTo"
                 control={control}
                 defaultValue=""
-                render={({ field }) => <input {...field} type="date" className='border w-32' required />}
+                render={({ field }) => <input {...field} type="date" className='border w-32 rounded' required />}
                 />
             </div>
             <div className='flex justify-between'>
@@ -57,10 +57,13 @@ function BookingForm() {
                     control={control}
                     defaultValue=""
                     render={({ field }) => (
-                    <input {...field} type="number" className='border w-32' />
+                    <input {...field} type="number" className='border w-32 text-black text-center rounded' />
                     )} />
             </div>
-            <button type='submit' className='bg-gray-200'>Book now</button> 
+            <div className='text-center'>
+                <button type='submit' className='my-5 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]'>Book now</button> 
+            </div>
+            
         </form>
         </div>
     )

@@ -2,3 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap');
+
+.bg-hero-pattern {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+body {
+    margin: 0 auto;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+h1, h2, .brand {
+    font-family: 'Raleway', sans-serif;
+}
+
+h1, h2 {
+    font-weight: 500;
+}
+
+.brand {
+    font-weight: 400;
+}
+
+input {
+    color: #000000;
+}
+

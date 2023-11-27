@@ -15,5 +15,5 @@ export const bookingsUrl = `${BASE_URL}bookings`
 export const profilesUrl = `${BASE_URL}profiles`
 export const profileDataUrl = `${profilesUrl}/${username}`;
 export const profileMediaUpdateUrl = `${profileDataUrl}/media`
-export const profileBookingsUrl = `${profileDataUrl}/bookings`;
+export const profileBookingsUrl = `${profileDataUrl}/bookings?_venue=true`;
 export const profileVenuesUrl = `${profilesUrl}/${username}/venues`;

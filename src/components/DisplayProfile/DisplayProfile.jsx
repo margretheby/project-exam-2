@@ -34,46 +34,38 @@ function DisplayProfile() {
     if(_count) {
         if(venueManager === true) {
             return (
-                <div className='w-56'>
-                    <div className='my-5'>
-                        {avatar !== '' ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
-                        <h1>{name}</h1>
+                <div className='w-48 flex flex-col justify-center items-center mx-auto mb-20 sm:w-[80%]'>
+                    <div className='my-5 flex items-center'>
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-14 mr-4 sm:w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-14 mr-4 sm:w-20' />}
+                        <h1 className='text-xl text-[#FFEC58] capitalize sm:text-3xl'>{name}</h1>
                     </div>
                     <div className='my-5'>
                         <form className='flex flex-col'>
-                            <label htmlFor='avatar' >Update avatar (url)</label>
-                            <input 
-                                type='url' 
-                                name='avatar' 
-                                value={formData.avatar}
-                                onChange={handleChange}
-                                className='border'/>
-                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 bg-gray-2000' /></button>
+                            <label htmlFor='avatar' className='text-sm'>Update avatar (url)</label>
+                            <div className='flex items-center'>
+                                <input 
+                                    type='url' 
+                                    name='avatar' 
+                                    value={formData.avatar}
+                                    onChange={handleChange}
+                                    className='border rounded h-7 w-36 mr-2 sm:w-48'/>
+                                <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black rounded hover:bg-white' /></button>
+                            </div>
                         </form>
                     </div>
                     <div className='my-5'>
-                        <h2>Your bookings</h2>
-                        <DisplayProfileBookings />
+                        <h2 className='text-[#FFEC58] text-md'>Your bookings</h2>
                         <div>
-                            <p>VenueImage</p>
-                            <p>VenueName</p>
-                            <div>
-                                <p>From: date</p>
-                                <p>To: date</p>
-                            </div>
-                            
+                            <DisplayProfileBookings />
                         </div>
                     </div>
                     <div className='my-5'>
-                        <div>
-                            <h2>Your venues</h2>
-                            <Link to='newvenue' className='bg-gray-200'><img src='/icons/plus.png' alt='Add new venue' className='w-10' /></Link>
+                        <div className='flex justify-between'>
+                            <h2 className='text-[#FFEC58] text-md'>Your venues</h2>
+                            <Link to='newvenue'><img src='/icons/plus.png' alt='Add new venue' className='h-6 p-1 bg-[#FFEC58] rounded hover:bg-white' /></Link>
                         </div>
                         <div>
                             <DisplayProfileVenues />
-                        </div>
-                        <div>
-                            <button className='bg-gray-200'>See all bookings</button>
                         </div>
                     </div>
                     
@@ -81,39 +73,35 @@ function DisplayProfile() {
             )
         } else {
             return (
-                <div className='w-48'>
-                    <div className='my-5'>
-                        {avatar !== '' ? <img src={avatar} alt={name} className='w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-20' />}
-                        <h1>{name}</h1>
+                <div className='w-48 flex flex-col justify-center items-center mx-auto mb-20 sm:w-[80%]'>
+                    <div className='my-5 flex items-center'>
+                        {avatar !== '' ? <img src={avatar} alt={name} className='w-14 mr-4 sm:w-20' /> : <img src={avatarPlaceholder} alt={name} className='w-14 mr-4 sm:w-20' />}
+                        <h1 className='text-xl text-[#FFEC58] capitalize sm:text-3xl'>{name}</h1>
                     </div>
                     <div className='my-5'>
                         <form className='flex flex-col'>
-                            <label htmlFor='avatar' >Update avatar (url)</label>
-                            <input 
-                                type='url' 
-                                name='avatar' 
-                                value={formData.avatar}
-                                onChange={handleChange}
-                                className='border'/>
-                            <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-8 bg-gray-200' /></button>
+                            <label htmlFor='avatar' className='text-sm'>Update avatar (url)</label>
+                            <div className='flex items-center'>
+                                <input 
+                                    type='url' 
+                                    name='avatar' 
+                                    value={formData.avatar}
+                                    onChange={handleChange}
+                                    className='border rounded h-7 w-36 mr-2 sm:w-48'/>
+                                <button onClick={handleClick}><img src='/icons/update-avatar.png' alt='Update avatar' className='h-7 my-2 bg-[#FFEC58] text-lg text-black rounded hover:bg-white' /></button>
+                            </div>
                         </form>
                     </div>
                     <div className='my-5'>
-                        <h2>Your bookings</h2>
+                        <h2 className='text-[#FFEC58] text-md'>Your bookings</h2>
                         <div>
-                            <p>VenueImage</p>
-                            <p>VenueName</p>
-                            <div>
-                                <p>From: date</p>
-                                <p>To: date</p>
-                            </div>
-                            
+                            <DisplayProfileBookings />                          
                         </div>
                         
                     </div>
-                    <div className='my-5'>
-                        <p>Want to make your venue available for people to book?</p>
-                        <button onClick={UpdateVenueManager} className='bg-gray-200 my-5'>Become a manager.</button>
+                    <div className='my-10 text-center sm:w-56'>
+                        <p className='text-sm'>Want to make your venue available for people to book?</p>
+                        <button onClick={UpdateVenueManager} className='my-2 text-lg font-bold text-[#FFEC58] rounded hover:underline hover:text-white'>Become a manager.</button>
                     </div>
                 </div>
             )

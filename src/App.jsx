@@ -21,7 +21,7 @@ function App() {
           <Route path='/profile/newvenue' element={<NewVenue />} />
         </Route>
       </Routes>
-      <ToastContainer className='w-48' />
+      <ToastContainer className='w-48' theme='dark' />
     </div>
   );
 }
