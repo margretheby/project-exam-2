@@ -34,9 +34,6 @@ function DisplayVenues() {
 
     return (
         <div>
-            <div className="ml-10">
-                <h2 className="text-3xl text-[#FFEC58] mx-5">Venues</h2>
-            </div>
             <div className="flex flex-wrap justify-center gap-5">
                 {data.map((venue) => {
                     const { media, id, name, price } = venue; 

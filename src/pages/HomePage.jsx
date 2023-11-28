@@ -29,8 +29,13 @@ function Home() {
                 </div>
             </div>
           </div>
-          <div id='search' className="px-5">
-              <Search />
+          <div className="md:flex md:justify-between md:items-top md:mr-10">
+            <div id='search' className="px-5 mb-5 md:order-2 md:px-0">
+                <Search />
+            </div>
+            <div className="ml-10">
+                <h2 className="text-3xl text-[#FFEC58] mx-5">Venues</h2>
+            </div>
           </div>
           <div className="py-5">
             <DisplayVenues /> 
