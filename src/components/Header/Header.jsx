@@ -1,5 +1,6 @@
 import Nav from "../Nav/Nav";
 import { NavLink } from 'react-router-dom'
+import { username } from "../../variables/localStorage";
 
 function Header() {
     return (
@@ -10,11 +11,14 @@ function Header() {
             <div className="mt-2 sm:order-1">
                 <NavLink to='/' className="text-3xl text-[#EFEFEF] brand hover:text-[#FFEC58]">Holidaze</NavLink>
             </div>
+            {username && (
             <div className="sm:hidden">
                 <NavLink to='/profile' >
                     <img src='/icons/user.png' alt='User page' className="h-8 mt-2"/>
                 </NavLink>
             </div>
+            )}
+
 
         </div>
     );

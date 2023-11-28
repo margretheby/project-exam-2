@@ -103,7 +103,7 @@ function RegisterUserForm() {
                     </div>
             <p className='text-sm mt-4'>You can update this later on your profile page if you change your mind.</p>
             <div className='flex justify-center mt-5'>
-                <button type='submit' className="my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">Registrer</button>
+                <button type='submit' className="my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]">Register</button>
             </div>
             
         </form>

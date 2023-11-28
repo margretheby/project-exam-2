@@ -71,7 +71,7 @@ function CreateVenueForm() {
                             />
                         </div>
                         <div className='flex flex-col'>
-                            <label htmlFor="media" className='text-sm mt-5 mb-1'>Media</label>
+                            <label htmlFor="media" className='text-sm mt-5 mb-1'>Images (url)</label>
                             <Controller
                                 name="media"
                                 control={control}
