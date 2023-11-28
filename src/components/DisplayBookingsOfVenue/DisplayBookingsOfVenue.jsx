@@ -30,9 +30,10 @@ function DisplayBookingsOfVenue() {
                                 const { id, dateFrom, dateTo } = booking;
                                 const formattedDateFrom = dateFrom.split('T')[0];
                                 const formattedDateTo = dateTo.split('T')[0];
+                                
 
                                 return (
-                                    <div key={id} className='mt-2'>
+                                    <div key={id} className='mt-2 text-center'>
                                         <ul>
                                             <li>From {formattedDateFrom} to {formattedDateTo}</li>
                                         </ul>

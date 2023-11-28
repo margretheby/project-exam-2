@@ -1,8 +1,7 @@
-function saveToStorage(accessToken, username, userAvatar, userManager) {
+function saveToStorage(accessToken, username, userAvatar) {
     localStorage.setItem('accessToken', accessToken);
     localStorage.setItem('username', username);
     localStorage.setItem('avatar', userAvatar);
-    localStorage.setItem('manager', userManager);
 }
 
 export default saveToStorage;

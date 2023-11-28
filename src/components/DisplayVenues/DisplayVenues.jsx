@@ -1,9 +1,10 @@
 import useApi from "../../hooks/useApi";
 import { venueUrl } from "../../variables/api.jsx"
 import { Link } from 'react-router-dom';
+import DisplayMoreVenues from "../DisplayMoreVenues/DisplayMoreVenues";
 
 function DisplayVenues() {
-    const { data, loading, throwError } = useApi(venueUrl);
+    const { data, loading, throwError } = useApi(`${venueUrl}?limit=10`);
     if(loading) {
         return (
             <div className="flex justify-center items-center my-20">
@@ -33,14 +34,11 @@ function DisplayVenues() {
 
     return (
         <div>
-            <div className="ml-10">
-                <h2 className="text-3xl text-[#FFEC58] mx-5">Venues</h2>
-            </div>
             <div className="flex flex-wrap justify-center gap-5">
                 {data.map((venue) => {
                     const { media, id, name, price } = venue; 
                     return (
-                        <div key={id} className='my-10 max-w-[40%] hover:bg-[#050505]'>
+                        <div key={id} className='my-10 hover:bg-[#050505]'>
                             <Link to={`/venues/${id}`}>
                                 <div className='h-40 w-40 sm:h-60 sm:w-60 bg-cover bg-center opacity-95 hover:opacity-100'  style={{ backgroundImage: `url('${media[0]}')` }}> 
                                 </div>
@@ -52,6 +50,9 @@ function DisplayVenues() {
                             </Link>
                         </div>)
                 })}
+            </div>
+            <div className="flex flex-wrap justify-center">
+                <DisplayMoreVenues />                
             </div>
         </div>
     )
