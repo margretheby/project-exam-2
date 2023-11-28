@@ -49,158 +49,164 @@ function CreateVenueForm() {
     return (
         <div className='w-56'>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='flex flex-col'>
-                    <label htmlFor="name" className='text-sm mt-5 mb-1'>Name *</label>
-                    <Controller
-                    name="name"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => <input {...field} type="text" className='border rounded pl-1' required />}
-                    />
-                </div>
-                <div className='flex flex-col'>
-                    <label htmlFor="description" className='text-sm mt-5 mb-1'>Description *</label>
-                    <Controller
-                    name="description"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => <input {...field} type="text" className='border rounded pl-1' required />}
-                    />
-                </div>
-                <div className='flex flex-col'>
-                    <label htmlFor="media" className='text-sm mt-5 mb-1'>Media</label>
-                    <Controller
-                        name="media"
-                        control={control}
-                        defaultValue={[]}
-                        render={({ field }) => (
-                        <input {...field} type="url" className='border rounded pl-1' />
-                        )} />
-                </div>
-                <div className='flex flex-col'>
-                    <label htmlFor="price" className='text-sm mt-5 mb-1'>Price per night *</label>
-                    <Controller
-                    name="price"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => <input {...field} type="number" className='border rounded pl-1' required />}
-                    />
-                </div>                
-                <div className='flex justify-between items-center mt-5'>
-                    <label htmlFor="maxGuests" className='text-sm'>Max guests *</label>
-                    <Controller
-                    name="maxGuests"
-                    control={control}
-                    defaultValue=""
-                    render={({ field }) => <input {...field} type="number" className='border w-12 rounded pl-1 h-7' required />}
-                    />
-                </div>
-
-                <div className='flex justify-between items-center mt-5'>
-                    <label htmlFor='rating' className='text-sm'>Rating</label>
-                    <Controller
-                    name="rating"
-                    control={control}
-                    defaultValue={0}
-                    render={({ field }) => <input type="number" className='border w-12 rounded pl-1 h-7' {...field} />}
-                    />
-                </div>
-                <div className='mt-10'>
-                    <h2 className='my-2 text-[#FFEC58] text-md'>Additional information: </h2>
-                    <div className='w-24 flex justify-between'>
-                        <label className='mr-2 text-sm'>Wifi:</label>
-                        <Controller
-                        name="meta.wifi"
-                        control={control}
-                        defaultValue={false}
-                        render={({ field }) => (
-                            <input type="checkbox" {...field} checked={field.value === true} />
-                        )}
-                        />
-                    </div>
-                    <div className='w-24 flex justify-between'>
-                        <label className='mr-2 text-sm'>Parking:</label>
-                        <Controller
-                        name="meta.parking"
-                        control={control}
-                        defaultValue={false}
-                        render={({ field }) => (
-                            <input type="checkbox" {...field} checked={field.value === true} />
-                        )}
-                        />
-                    </div>
-                    <div className='w-24 flex justify-between'>
-                        <label className='mr-2 text-sm'>Breakfast: </label>
-                        <Controller
-                        name="meta.breakfast"
-                        control={control}
-                        defaultValue={false}
-                        render={({ field }) => (
-                            <input type="checkbox" {...field} checked={field.value === true} />
-                        )}
-                        />
-                    </div>
-                    <div className='w-24 flex justify-between'>
-                        <label className='mr-2 text-sm'>Pets:</label>   
-                        <Controller
-                        name="meta.pets"
-                        control={control}
-                        defaultValue={false}
-                        render={({ field }) => (
-                            <input type="checkbox" {...field} checked={field.value === true} />
-                        )}
-                        />
-                    </div>
-                </div>
-                <div className='mt-10'>
-                    <h2 className='my-2 text-[#FFEC58] text-md'>Location: </h2>
+                <div className='md:flex md:gap-10 md:justify-center md:mt-5'>
                     <div className='flex flex-col'>
-                        <label htmlFor='location.address' className='text-sm mb-1'>Address</label>
-                        <Controller
-                        name="location.address"
-                        control={control}
-                        defaultValue=""
-                        render={({ field }) => <input {...field} type="text" className='border rounded pl-1' />}
-                        />
-                    </div>
-                    <div className='flex justify-between'>
+                    <h2 className='my-2 text-[#FFEC58] text-md md:mt-0'>General information: </h2>
                         <div className='flex flex-col'>
-                            <label htmlFor='location.zip' className='text-sm mt-5 mb-1'>Zip code</label>
+                            <label htmlFor="name" className='text-sm mt-5 mb-1 md:mt-0'>Name *</label>
                             <Controller
-                            name="location.zip"
+                            name="name"
                             control={control}
                             defaultValue=""
-                            render={({ field }) => <input {...field} type="text" className='border rounded pl-1 w-16' />}
+                            render={({ field }) => <input {...field} type="text" className='border rounded pl-1' required />}
                             />
                         </div>
                         <div className='flex flex-col'>
-                            <label htmlFor='location.city' className='text-sm mt-5 mb-1'>City</label>
+                            <label htmlFor="description" className='text-sm mt-5 mb-1'>Description *</label>
                             <Controller
-                            name="location.city"
+                            name="description"
                             control={control}
                             defaultValue=""
-                            render={({ field }) => <input {...field} type="text" className='border rounded pl-1 w-36' />}
+                            render={({ field }) => <input {...field} type="text" className='border rounded pl-1' required />}
+                            />
+                        </div>
+                        <div className='flex flex-col'>
+                            <label htmlFor="media" className='text-sm mt-5 mb-1'>Media</label>
+                            <Controller
+                                name="media"
+                                control={control}
+                                defaultValue={[]}
+                                render={({ field }) => (
+                                <input {...field} type="url" className='border rounded pl-1' />
+                                )} />
+                        </div>
+                        <div className='flex flex-col'>
+                            <label htmlFor="price" className='text-sm mt-5 mb-1'>Price per night *</label>
+                            <Controller
+                            name="price"
+                            control={control}
+                            defaultValue=""
+                            render={({ field }) => <input {...field} type="number" className='border rounded pl-1' required />}
+                            />
+                        </div>                
+                        <div className='flex justify-between items-center mt-5'>
+                            <label htmlFor="maxGuests" className='text-sm'>Max guests *</label>
+                            <Controller
+                            name="maxGuests"
+                            control={control}
+                            defaultValue=""
+                            render={({ field }) => <input {...field} type="number" className='border w-12 rounded pl-1 h-7' required />}
+                            />
+                        </div>
+                        <div className='flex justify-between items-center mt-5'>
+                            <label htmlFor='rating' className='text-sm'>Rating</label>
+                            <Controller
+                            name="rating"
+                            control={control}
+                            defaultValue={0}
+                            render={({ field }) => <input type="number" className='border w-12 rounded pl-1 h-7' {...field} />}
                             />
                         </div>
                     </div>
+                    <div className='flex flex-col'>
+                        <div className='mt-10 md:m-0'>
+                            <h2 className='my-2 text-[#FFEC58] text-md md:mt-0'>Additional information: </h2>
+                            <div className='w-24 flex justify-between'>
+                                <label className='mr-2 text-sm'>Wifi:</label>
+                                <Controller
+                                name="meta.wifi"
+                                control={control}
+                                defaultValue={false}
+                                render={({ field }) => (
+                                    <input type="checkbox" {...field} checked={field.value === true} />
+                                )}
+                                />
+                            </div>
+                            <div className='w-24 flex justify-between'>
+                                <label className='mr-2 text-sm'>Parking:</label>
+                                <Controller
+                                name="meta.parking"
+                                control={control}
+                                defaultValue={false}
+                                render={({ field }) => (
+                                    <input type="checkbox" {...field} checked={field.value === true} />
+                                )}
+                                />
+                            </div>
+                            <div className='w-24 flex justify-between'>
+                                <label className='mr-2 text-sm'>Breakfast: </label>
+                                <Controller
+                                name="meta.breakfast"
+                                control={control}
+                                defaultValue={false}
+                                render={({ field }) => (
+                                    <input type="checkbox" {...field} checked={field.value === true} />
+                                )}
+                                />
+                            </div>
+                            <div className='w-24 flex justify-between'>
+                                <label className='mr-2 text-sm'>Pets:</label>   
+                                <Controller
+                                name="meta.pets"
+                                control={control}
+                                defaultValue={false}
+                                render={({ field }) => (
+                                    <input type="checkbox" {...field} checked={field.value === true} />
+                                )}
+                                />
+                            </div>
+                        </div>
+                        <div className='mt-10'>
+                            <h2 className='my-2 text-[#FFEC58] text-md'>Location: </h2>
+                            <div className='flex flex-col'>
+                                <label htmlFor='location.address' className='text-sm mb-1'>Address</label>
+                                <Controller
+                                name="location.address"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => <input {...field} type="text" className='border rounded pl-1' />}
+                                />
+                            </div>
+                            <div className='flex justify-between'>
+                                <div className='flex flex-col mr-1'>
+                                    <label htmlFor='location.zip' className='text-sm mt-5 mb-1'>Zip code</label>
+                                    <Controller
+                                    name="location.zip"
+                                    control={control}
+                                    defaultValue=""
+                                    render={({ field }) => <input {...field} type="text" className='border rounded pl-1 w-16' />}
+                                    />
+                                </div>
+                                <div className='flex flex-col'>
+                                    <label htmlFor='location.city' className='text-sm mt-5 mb-1'>City</label>
+                                    <Controller
+                                    name="location.city"
+                                    control={control}
+                                    defaultValue=""
+                                    render={({ field }) => <input {...field} type="text" className='border rounded pl-1 w-36' />}
+                                    />
+                                </div>
+                            </div>
 
-                    <div className='flex flex-col'>
-                        <label htmlFor='location.country' className='text-sm mt-5 mb-1'>Country</label>
-                        <Controller
-                        name="location.country"
-                        control={control}
-                        defaultValue=""
-                        render={({ field }) => <input {...field} type="text mt-5 mb-1" className='border rounded pl-1' />}
-                        />
-                    </div>
-                    <div className='flex flex-col'>
-                        <label htmlFor='location.continent' className='text-sm mt-5 mb-1'>Continent</label>
-                        <Controller
-                        name="location.continent"
-                        control={control}
-                        defaultValue=""
-                        render={({ field }) => <input {...field} type="text" className='border rounded pl-1' />}
-                        />
+                            <div className='flex flex-col'>
+                                <label htmlFor='location.country' className='text-sm mt-5 mb-1'>Country</label>
+                                <Controller
+                                name="location.country"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => <input {...field} type="text mt-5 mb-1" className='border rounded pl-1' />}
+                                />
+                            </div>
+                            <div className='flex flex-col'>
+                                <label htmlFor='location.continent' className='text-sm mt-5 mb-1'>Continent</label>
+                                <Controller
+                                name="location.continent"
+                                control={control}
+                                defaultValue=""
+                                render={({ field }) => <input {...field} type="text" className='border rounded pl-1' />}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className='flex justify-center mt-5'>
