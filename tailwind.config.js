@@ -4,10 +4,21 @@ module.exports = {
   "./src/**/**/*.{js,jsx,ts,tsx}",
   "./src/**/*.{js,jsx,ts,tsx}",
   "./src/*.{js,jsx,ts,tsx}",
+  './public/**/*.html',
+  './public/*.html',
 ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'hero-pattern': "url('../public/images/bg.jpg')",
+      }
+    },
   },
-  plugins: [],
+  plugins: [{
+    'postcss-nesting': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  }],
+  mode: 'jit'
 }
 
