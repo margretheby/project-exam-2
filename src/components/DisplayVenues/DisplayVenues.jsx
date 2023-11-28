@@ -38,7 +38,7 @@ function DisplayVenues() {
                 {data.map((venue) => {
                     const { media, id, name, price } = venue; 
                     return (
-                        <div key={id} className='my-10 max-w-[40%] hover:bg-[#050505]'>
+                        <div key={id} className='my-10 hover:bg-[#050505]'>
                             <Link to={`/venues/${id}`}>
                                 <div className='h-40 w-40 sm:h-60 sm:w-60 bg-cover bg-center opacity-95 hover:opacity-100'  style={{ backgroundImage: `url('${media[0]}')` }}> 
                                 </div>
