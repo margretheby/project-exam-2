@@ -1,9 +1,10 @@
 import useApi from "../../hooks/useApi";
 import { venueUrl } from "../../variables/api.jsx"
 import { Link } from 'react-router-dom';
+import DisplayMoreVenues from "../DisplayMoreVenues/DisplayMoreVenues";
 
 function DisplayVenues() {
-    const { data, loading, throwError } = useApi(venueUrl);
+    const { data, loading, throwError } = useApi(`${venueUrl}?limit=10`);
     if(loading) {
         return (
             <div className="flex justify-center items-center my-20">
@@ -52,6 +53,9 @@ function DisplayVenues() {
                             </Link>
                         </div>)
                 })}
+            </div>
+            <div className="flex flex-wrap justify-center">
+                <DisplayMoreVenues />                
             </div>
         </div>
     )
