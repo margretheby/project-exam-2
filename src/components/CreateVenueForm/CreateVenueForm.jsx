@@ -9,7 +9,8 @@ function CreateVenueForm() {
 
     const onSubmit = async (data) => {
         const rating = data.rating ? parseInt(data.rating) : 0;
-        const mediaArray = data.media.split(',').map((url) => url.trim());
+        const mediaArray = data.media || [];
+        console.log(mediaArray);
 
         const body = {
             name: data.name,
@@ -78,7 +79,8 @@ function CreateVenueForm() {
                                 control={control}
                                 defaultValue={[]}
                                 render={({ field }) => (
-                                <input {...field} type="url" className='border rounded pl-1' />
+                                <input {...field} type="url" className='border rounded pl-1'
+                                onChange={(e) => field.onChange(e.target.value.split(',').map((url) => url.trim()))} />
                                 )} />
                         </div>
                         <div className='flex flex-col'>
