@@ -16,7 +16,7 @@ The API used for this project can be found under Holidaze in the <a href="https:
 
 ### Links
 - <a href="https://mby-holidaze.netlify.app" target="_blank">Holidaze website</a>
-- <a href="https://xd.adobe.com/view/0435d53a-55c3-47c4-888b-53f070ccb298-5166/?fullscreen" target="_blank">Mid-fidelity prototype</a>
+- <a href="https://xd.adobe.com/view/0435d53a-55c3-47c4-888b-53f070ccb298-5166/?fullscreen" target="_blank">Prototype</a>
 - <a href="https://xd.adobe.com/view/79bd75f9-fe35-4567-b6c9-80e2d22e4e1d-2cee/?fullscreen" target="_blank">Style guide</a>
 - <a href="https://github.com/users/margretheby/projects/3/views/1" target="_blank">Gantt Chart</a>
 - <a href="https://github.com/users/margretheby/projects/3/views/2" target="_blank">Kanban Board</a>
