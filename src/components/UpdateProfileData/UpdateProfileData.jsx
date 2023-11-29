@@ -31,7 +31,10 @@ async function UpdateProfileMedia(avatar) {
 
         return result;
     } catch(error) {
-        console.log(error);
+        toast.error('Something went wrong, please try again.', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+        });
     }
 }
 

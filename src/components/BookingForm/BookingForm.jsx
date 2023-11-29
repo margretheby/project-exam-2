@@ -19,7 +19,8 @@ function BookingForm() {
         
         try {
             const response = await createBooking(body);
-            console.log(response);
+            return response;
+
             
         } catch (error) {
             toast.error('Something went wrong, please try again.', {

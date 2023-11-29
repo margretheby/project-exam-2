@@ -22,16 +22,14 @@ function DisplayMoreVenues() {
     }
 
     if (!Array.isArray(data)) {
-        console.error("Data is not an array:", data);
         return (
             <div>
-                Oops! Something went wrong. Please try again.
+                Oobs! Something went wrong. Please try again.
             </div>
         );
     }
 
     if(!loading && throwError) {
-        console.log(throwError);
         return (
             <div>
                 Ooobs! Something went wrong, please try again.

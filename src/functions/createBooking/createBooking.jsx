@@ -21,7 +21,6 @@ async function createBooking(booking) {
                 autoClose: 4000,
             });
         } else {
-            console.log(response);
             toast.error('Ooobs! Something went wrong. Are you logged in? If so, please try again.', {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose: 4000,
@@ -29,7 +28,10 @@ async function createBooking(booking) {
         }
 
     } catch(error) {
-        console.log(error);
+        toast.error('Something went wrong, please try again.', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+        });
     }
 }
 

@@ -1,5 +1,6 @@
 import { useForm, Controller } from 'react-hook-form';
 import registerUser from '../../functions/registerUser/registerUser';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function RegisterUserForm() {
@@ -20,7 +21,10 @@ function RegisterUserForm() {
 
     
         } catch (error) {
-            console.log(error);
+            toast.error('Something went wrong, please try again.', {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000,
+            });
         }
     };
     

@@ -57,7 +57,6 @@ function FetchBookings() {
             } catch(error) {
                 setLoading(false);
                 setThrowError(true);
-                console.log(error);
             }
         }
 

@@ -15,7 +15,7 @@ async function createVenue(venue) {
         });
 
         const result = await response.json();
-        console.log(result);
+
         if (response.ok) {
             toast.success('Success! Your venue is now available for bookings.', {
                 position: toast.POSITION.TOP_CENTER,
@@ -30,7 +30,7 @@ async function createVenue(venue) {
 
         return result;
     } catch(error) {
-        console.log(error);
+        return error;
     }
 }
 

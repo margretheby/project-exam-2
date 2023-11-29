@@ -9,11 +9,12 @@ function CreateVenueForm() {
 
     const onSubmit = async (data) => {
         const rating = data.rating ? parseInt(data.rating) : 0;
+        const mediaArray = data.media.split(',').map((url) => url.trim());
 
         const body = {
             name: data.name,
             description: data.description,
-            media: data.media.length > 0 ? [data.media] : ['https://images.unsplash.com/photo-1582201943259-c891687a0a9a?q=80&w=2315&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
+            media: mediaArray.length > 0 ? mediaArray : ['https://images.unsplash.com/photo-1582201943259-c891687a0a9a?q=80&w=2315&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'],
             price: parseInt(data.price),
             maxGuests: parseInt(data.maxGuests),
             rating: rating,
