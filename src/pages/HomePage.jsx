@@ -20,13 +20,11 @@ function Home() {
                 <h2 className=" sm:text-2xl">Looking for accommodation for your next trip?</h2>
                 <h2 className="mt-2 sm:text-2xl">You have come to the right place.</h2>
               </div>
-
-                <div className="mt-32">
-                  <a href='#search'>
-                    <img src='/icons/arrow.png' alt='See venues' className="w-20 p-5 animate-bounce" />
-                  </a>
-                  
-                </div>
+              <div className="mt-32">
+                <a href='#search'>
+                  <img src='/icons/arrow.png' alt='See venues' className="w-20 p-5 animate-bounce hover:animate-none" />
+                </a>
+              </div>
             </div>
           </div>
           <div className="md:flex md:justify-between md:items-top md:mr-10">
