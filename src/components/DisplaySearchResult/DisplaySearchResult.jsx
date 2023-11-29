@@ -25,7 +25,7 @@ function DisplaySearchResult(searchQuery) {
     } else {
         return (
             <div className='my-5'>
-                <p className='italic'>No venues found with that name.</p>
+                <p className='italic ml-10 md:ml-0'>No venues found with that name.</p>
             </div>
         )
     }

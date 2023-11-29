@@ -32,7 +32,8 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
         setDescriptionValue(e.target.value);
       };
       const handleMediaChange = (e) => {
-        setMediaValue([e.target.value]);
+        const mediaUrls = e.target.value.split(',').map(url => url.trim())
+        setMediaValue(mediaUrls);
       };
       const handlePriceChange = (e) => {
         setPriceValue(Number(e.target.value));
@@ -124,7 +125,10 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
             }
             
         } catch (error) {
-            console.log(error);
+            toast.error('Something went wrong, please try again.', {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000,
+            });
         }
         
     }
@@ -138,7 +142,6 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
     }
 
     if(!loading && throwError) {
-        console.log(throwError);
         return (
             <div>
                 Ooobs! Something went wrong, please try again.
@@ -186,7 +189,7 @@ function UpdateVenueForm({ isOpen, onRequestClose }) {
                                     control={control}
                                     defaultValue={[]}
                                     render={({ field }) => (
-                                    <input {...field} type="url" value={mediaValue} onChange={handleMediaChange} className='border rounded' />
+                                    <input {...field} type="url" value={mediaValue.join(',')} onChange={handleMediaChange} className='border rounded' />
                                     )} />
                             </div>
                             <div className='flex flex-col'>

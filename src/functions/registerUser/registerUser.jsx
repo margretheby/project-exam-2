@@ -16,8 +16,8 @@ async function registerUser(user) {
         
         if (response.ok) {
             const { name } = responseData;
-            console.log('Successful registration:', name);
-            toast.success('Success! You are now registered.', {
+
+            toast.success(`Success! You are now registered. Welcome, ${name}!`, {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose: 3000,
             });

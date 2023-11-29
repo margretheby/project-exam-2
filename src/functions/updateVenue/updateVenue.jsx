@@ -12,11 +12,10 @@ async function updateVenue(url, updatedInfo) {
         });
 
         const result = await response.json();
-        console.log(result);
 
         return result;
     } catch(error) {
-        console.log(error);
+        return error;
     }
 }
 

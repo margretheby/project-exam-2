@@ -31,7 +31,6 @@ function DisplaySpecificVenue() {
     }
 
     if(!loading && throwError) {
-        console.log(throwError);
         return (
             <div>
                 Ooobs! Something went wrong, please try again.

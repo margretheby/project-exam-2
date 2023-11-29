@@ -20,12 +20,10 @@ function useApi(url) {
             } catch (error) {
                 setLoading(false);
                 setThrowError(true);
-
-                console.log(error);
-
             }
         }
         getData();
+        
     }, [url]);
 
     return { data, loading, throwError };
