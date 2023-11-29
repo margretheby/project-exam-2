@@ -1,5 +1,5 @@
 # Semester Project 2
-<img src="https://github.com/margretheby/project-exam-2/" alt="Screenshot of the Holidaze website on desktop">
+<img src="https://github.com/margretheby/project-exam-2/blob/main/holidaze.jpg?raw=true" alt="Screenshot of the Holidaze website on desktop">
 
 ## Description
 This was an exam from Noroff school of technology and digital media, second year last semester: 
