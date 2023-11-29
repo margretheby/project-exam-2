@@ -22,7 +22,7 @@ async function createBooking(booking) {
             });
         } else {
             console.log(response);
-            toast.error('Ooobs! Something went wrong, please try again.', {
+            toast.error('Ooobs! Something went wrong. Are you logged in? If so, please try again.', {
                 position: toast.POSITION.TOP_CENTER,
                 autoClose: 4000,
             });
