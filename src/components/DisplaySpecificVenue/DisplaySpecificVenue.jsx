@@ -81,7 +81,7 @@ function DisplaySpecificVenue() {
 
                                     </div>
                                 </div>
-                                <div>
+                                <div className="flex flex-col items-center">
                                     <div className="w-56 sm:w-72">
                                         <h1 className="text-xl text-[#FFEC58] text-center sm:text-left sm:text-3xl sm:mb-4">{name}</h1>
                                         <p className="text-sm">{description}</p>
@@ -94,7 +94,7 @@ function DisplaySpecificVenue() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="sm:flex sm:justify-center sm:gap-10 md:gap-20 lg:gap-24">
+                            <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:items-start sm:gap-10 md:gap-20 lg:gap-24">
                                 <div className="sm:order-2 md:justify-start">
                                     <div className="w-56 sm:w-72">
                                         <h3 className="text-xl text-[#FFEC58] text-center sm:mt-5">More information</h3>
