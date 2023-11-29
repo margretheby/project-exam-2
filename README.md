@@ -11,7 +11,7 @@ There are two aspects to this brief: the customer-facing side of the website whe
 ### Requirements & API
 All API functionality is managed by an existing application. This project only covers the front-end application for the API.
 
-The API you are using for this project can be found under Holidaze in the <a href="https://docs.noroff.dev/" target="_blank">Noroff API Documentation</a>
+The API used for this project can be found under Holidaze in the <a href="https://docs.noroff.dev/" target="_blank">Noroff API Documentation</a>
 
 
 ### Links
@@ -61,6 +61,6 @@ npm install
 
 ## Contact
 - <a href="https://mby-portfolio.netlify.app" target="_blank">Portfolio</a>
-- <a href="https://www.linkedin.com/in/margrethe-by-6abb98226/" target="_blank">LinkedIn page</a>
+- <a href="https://www.linkedin.com/in/margrethe-by-6abb98226/" target="_blank">LinkedIn</a>
 - <a href="https://github.com/margretheby" target="_blank">GitHub</a>
 - <a href="mailto:margrethe.developer@gmail.com">margrethe.developer@gmail.com</a>
