@@ -57,6 +57,7 @@ The company CTO has set the following technical restrictions:
 ``` 
 git clone git@github.com:margretheby/project-exam-2.git
 npm install
+npm start
 ```
 
 ## Contact
