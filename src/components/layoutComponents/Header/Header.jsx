@@ -18,8 +18,6 @@ function Header() {
                 </NavLink>
             </div>
             )}
-
-
         </div>
     );
 }

@@ -1,10 +1,16 @@
-import useApi from "../../../hooks/useApi";
+import useApi from "../../../hooks/useApi/useApi";
 import { venueUrl } from "../../../variables/api.jsx"
 import { Link } from 'react-router-dom';
 import DisplayMoreVenues from "../DisplayMoreVenues/DisplayMoreVenues";
 
+/**
+ * Fetch 10 venues from the API and display them if the API call is successful
+ * @component
+ * @returns {JSX.Element}} returns the JSX representation of the DisplayVenues component
+ */
 function DisplayVenues() {
     const { data, loading, throwError } = useApi(`${venueUrl}?limit=10`);
+
     if(loading) {
         return (
             <div className="flex justify-center items-center my-20">

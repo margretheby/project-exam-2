@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom';
 
+/**
+ * Display search result based on a given searchQuery
+ * @component
+ * @param {object} searchQuery based on user input in search form
+ * @returns {JSX.Element}} the JSX representation of the DisplaySearchResult component
+ */
 function DisplaySearchResult(searchQuery) {
     if (searchQuery.venues.length > 0) {
         return (

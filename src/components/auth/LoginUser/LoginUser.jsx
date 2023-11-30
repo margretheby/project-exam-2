@@ -5,6 +5,11 @@ import saveToStorage from '../../../functions/saveToStorage/saveToStorage.jsx';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Form to log in a user
+ * @component
+ * @returns {JSX.Element}} returns the JSX representation of the LoginForm component
+ */
 const LoginForm = () => {
     const { handleSubmit, control } = useForm();
   

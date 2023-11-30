@@ -5,7 +5,11 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import relocateToProfile from '../../../functions/relocateToProfile/relocateToProfile.jsx';
 
-
+/**
+ * Delete a venue
+ * @component
+ * @returns {React.Component} returns the DeleteVenueButton component
+ */
 function DeleteVenueButton() {
     let { id } = useParams();
     const deleteVenueUrl = `${venueUrl}/${id}`

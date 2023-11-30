@@ -2,7 +2,6 @@ import { NavLink } from 'react-router-dom'
 import logOut from '../../../functions/logOut/logOut';
 import { accessToken } from '../../../variables/localStorage';
 
-
 function Footer() {
     return (
         <div className='mx-auto text-center text-[#FFEC58] max-w-sm pb-10'>

@@ -1,7 +1,12 @@
-import GetData from "../../general/GetData/GetData.jsx";
+import GetData from "../../../hooks/GetData/GetData.jsx";
 import { profileBookingsUrl } from '../../../variables/api.jsx'
 import { Link } from 'react-router-dom';
 
+/**
+ * Fetch profile booking data from the API and display the information
+ * @component
+ * @returns {React.Component} returns the DisplayProfileBookings component
+ */
 function DisplayProfileBookings() {
     const { data, loading, throwError } = GetData(profileBookingsUrl)
     

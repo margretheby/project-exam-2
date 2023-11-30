@@ -2,6 +2,11 @@ import { registerUrl } from '../../variables/api.jsx';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * User registration information is sent to the API using a POST request
+ * @param {object} user information sent to the API in the request body
+ * @returns promise that resolves with the registration attempt, and displays success/error messages
+ */
 async function registerUser(user) {
     try {
         const response = await fetch(registerUrl, {
@@ -14,6 +19,7 @@ async function registerUser(user) {
 
         const responseData = await response.json();
         
+        // checks if the API response is successful
         if (response.ok) {
             const { name } = responseData;
 

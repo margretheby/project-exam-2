@@ -1,8 +1,13 @@
-import useApi from "../../../hooks/useApi";
+import useApi from "../../../hooks/useApi/useApi";
 import { venueUrl } from "../../../variables/api.jsx"
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
+/**
+ * Fetch more than the first 10 venues from the API and display them if the API call is successful
+ * @component
+ * @returns {React.Component} returns the DisplayVenues component
+ */
 function DisplayMoreVenues() {
     const { data, loading, throwError } = useApi(`${venueUrl}?offset=10`);
     const [showMoreVenues, setShowMoreVenues] = useState(false);

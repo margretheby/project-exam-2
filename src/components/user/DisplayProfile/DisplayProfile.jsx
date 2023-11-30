@@ -1,12 +1,17 @@
 import { profileDataUrl } from '../../../variables/api.jsx'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import GetData from '../../general/GetData/GetData.jsx'
+import GetData from '../../../hooks/GetData/GetData.jsx'
 import UpdateProfileMedia from '../UpdateProfileData/UpdateProfileData.jsx';
 import UpdateVenueManager from '../UpdateVenueManager/UpdateVenueManager.jsx';
 import DisplayProfileBookings from '../DisplayProfileBookings/DisplayProfileBookings.jsx'
 import DisplayProfileVenues from '../../manager/DisplayProfileVenues/DisplayProfileVenues.jsx';
 
+/**
+ * Fetch profile data from the API and display profile information
+ * @component
+ * @returns {JSX.Element}} returns the JSX representation of DisplayProfile component
+ */
 function DisplayProfile() {
     const avatarPlaceholder = '/icons/user.png'
 
@@ -105,12 +110,8 @@ function DisplayProfile() {
                     </div>
                 </div>
             )
-    
         }
     }
-
-
-
 }
 
 export default DisplayProfile;

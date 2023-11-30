@@ -1,5 +1,5 @@
 import { useForm, Controller } from 'react-hook-form';
-import useApi from "../../../hooks/useApi.jsx";
+import useApi from "../../../hooks/useApi/useApi.jsx";
 import Modal from 'react-modal'
 import updateVenue from '../../../functions/updateVenue/updateVenue';
 import { venueUrl } from '../../../variables/api.jsx'
@@ -10,6 +10,14 @@ import { customStyleModal } from '../../../variables/customStyleModal.jsx';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Form to update a venue
+ * @component
+ * @param {Object} props react component properties
+ * @param {boolean} props.isOpen indicates if the modal is open or not
+ * @param {function} props.onRequestClose function to handle modal close request 
+ * @returns {React.Component} returns the UpdateVenueForm component
+ */
 function UpdateVenueForm({ isOpen, onRequestClose }) {
     // Form value states from venue
     const [ nameValue, setNameValue ] = useState('');

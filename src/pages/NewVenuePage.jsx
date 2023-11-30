@@ -1,6 +1,10 @@
 import CreateVenueForm from "../components/manager/CreateVenueForm/CreateVenueForm";
 import { Helmet } from 'react-helmet';
 
+/**
+ * NewVenue component that represents the new venue page of the application
+ * @returns {JSX.Element}} NewVenue page
+ */
 function NewVenue() {
     return (
       <div className="py-10 px-4 bg-gradient-to-t from-[#222222] to-[#222222aa] flex flex-col items-center">

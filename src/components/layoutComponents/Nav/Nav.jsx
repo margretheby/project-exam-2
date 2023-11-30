@@ -3,6 +3,10 @@ import { useState } from 'react'
 import logOut from '../../../functions/logOut/logOut';
 import { accessToken } from '../../../variables/localStorage';
 
+/**
+ * Display navigation with hamburger icon on smaller screens
+ * @returns responsive navigation
+ */
 function Nav() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -17,7 +21,6 @@ function Nav() {
                     <img src='/icons/menu.png' alt='Navigation' className='w-8 mt-2' />
                 </button>
             </div>
-
             <ul className={`${
                 isMenuOpen ? 'block' : 'hidden'
             } sm:flex gap-1 `}>

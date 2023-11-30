@@ -2,6 +2,10 @@ import RegisterUserForm from "../components/auth/RegisterUserForm/RegisterUserFo
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
+/**
+ * Register component that represents the register page of the application
+ * @returns {JSX.Element}} Register page
+ */
 function Register() {
     return (
       <div className="py-10 px-4 bg-gradient-to-t from-[#222222] to-[#222222aa] pb-48">

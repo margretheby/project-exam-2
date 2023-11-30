@@ -3,6 +3,11 @@ import { venueUrl } from '../../variables/api.jsx'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Sends a POST request to the API to create a new venue
+ * @param {Object} venue data to be sent in the request body
+ * @returns a promise that resolves when the venue creation is attempted
+ */
 async function createVenue(venue) {
     try {
         const response = await fetch(venueUrl, {

@@ -2,6 +2,10 @@ import DisplayVenues from "../components/general/DisplayVenues/DisplayVenues";
 import Search from "../components/general/Search/Search";
 import { Helmet } from 'react-helmet';
 
+/**
+ * Venues component that represents the venues page of the application
+ * @returns {JSX.Element}} Venues page
+ */
 function Venues() {
     return (
         <div className="pt-10 px-4">

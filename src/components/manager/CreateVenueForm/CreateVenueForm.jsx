@@ -4,6 +4,11 @@ import createVenue from '../../../functions/createVenue/createVenue';
 import relocateToProfile from '../../../functions/relocateToProfile/relocateToProfile';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Form to create a new venue
+ * @component
+ * @returns {React.Component} returns the CreateVenueForm component
+ */
 function CreateVenueForm() {
     const { handleSubmit, control } = useForm();
 
@@ -190,7 +195,6 @@ function CreateVenueForm() {
                                     />
                                 </div>
                             </div>
-
                             <div className='flex flex-col'>
                                 <label htmlFor='location.country' className='text-sm mt-5 mb-1'>Country</label>
                                 <Controller
@@ -215,7 +219,6 @@ function CreateVenueForm() {
                 <div className='flex justify-center mt-5'>
                     <button type='submit' className='my-2 bg-[#FFEC58] text-lg text-black w-32 py-1 border-2 border-[#FFEC58] rounded hover:border-2 hover:bg-[#222222] hover:text-[#FFEC58]'>Add venue</button>
                 </div>
-                
             </form>
         </div>
     )

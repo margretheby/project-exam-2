@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 
+/**
+ * Fetch data from an url to get data, loading and error states
+ * @param {string} url to fetch data from
+ * @returns {object} an object containing data, loading and error states
+ */
 function useApi(url) {
     const [ data, setData ] = useState([]);
     const [ loading, setLoading ] = useState(false);

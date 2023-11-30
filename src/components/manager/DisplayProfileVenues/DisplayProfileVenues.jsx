@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
-import GetData from "../../general/GetData/GetData.jsx";
+import GetData from "../../../hooks/GetData/GetData.jsx";
 import { profileVenuesUrl } from '../../../variables/api.jsx'
 
+/**
+ * Fetch venue data from the API and display venue information (venue manager function)
+ * @component
+ * @returns {React.Component} returns the DisplayProfileVenues component
+ */
 function DisplayProfileVenues() {
     const { data, loading, throwError } = GetData(profileVenuesUrl)
     
@@ -29,7 +34,6 @@ function DisplayProfileVenues() {
                                 </div> : "" }
                                 <h3 className="ml-4 text-sm md:text-md">{venue.name}</h3>
                             </div>
-                            
                         </Link>
                     </div>
                 )
