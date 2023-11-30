@@ -1,4 +1,4 @@
-import DisplayProfile from "../components/DisplayProfile/DisplayProfile";
+import DisplayProfile from "../components/user/DisplayProfile/DisplayProfile";
 import { Helmet } from 'react-helmet';
 import { username } from "../variables/localStorage";
 

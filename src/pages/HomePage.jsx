@@ -1,5 +1,5 @@
-import DisplayVenues from "../components/DisplayVenues/DisplayVenues";
-import Search from "../components/Search/Search";
+import DisplayVenues from "../components/general/DisplayVenues/DisplayVenues";
+import Search from "../components/general/Search/Search";
 import { Helmet } from 'react-helmet';
 
 function Home() {
@@ -42,4 +42,4 @@ function Home() {
     );
   }
   
-  export default Home;
+export default Home;
