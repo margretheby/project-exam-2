@@ -2,6 +2,10 @@ import DisplayVenues from "../components/general/DisplayVenues/DisplayVenues";
 import Search from "../components/general/Search/Search";
 import { Helmet } from 'react-helmet';
 
+/**
+ * Home component that represents the lading page of the application
+ * @returns {JSX.Element}} Home page
+ */
 function Home() {
     return (
         <div className="pt-10 px-4">
@@ -40,6 +44,6 @@ function Home() {
           </div>
         </div>
     );
-  }
+}
   
 export default Home;

@@ -5,6 +5,11 @@ import createBooking from '../../../functions/createBooking/createBooking.jsx'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Form to create bookings of a venue
+ * @component
+ * @returns {JSX.Element}} returns the JSX representation of the BookingForm component
+ */
 function BookingForm() {
     const { handleSubmit, control } = useForm();
     let { id } = useParams();

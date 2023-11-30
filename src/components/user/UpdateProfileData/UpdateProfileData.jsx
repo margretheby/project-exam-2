@@ -3,6 +3,11 @@ import { profileMediaUpdateUrl } from '../../../variables/api.jsx'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Update a user's avatar by making a PUT request to the API
+ * @param {Object} avatar Object containing the updated avatar url
+ * @returns a promise that resolves the result of the PUT request
+ */
 async function UpdateProfileMedia(avatar) {
     try {
         const response = await fetch(profileMediaUpdateUrl, {

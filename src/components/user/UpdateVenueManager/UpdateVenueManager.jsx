@@ -3,6 +3,10 @@ import { profileDataUrl } from '../../../variables/api.jsx'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Update a user's venueManager value by making a PUT request to the API
+ * @returns a promise that resolves the result of the PUT request
+ */
 async function UpdateVenueManager() {
     try {
         const updateVenueManagerStatus = {

@@ -3,6 +3,11 @@ import registerUser from '../../../functions/registerUser/registerUser';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Form to register a user
+ * @component
+ * @returns {JSX.Element}} returns the JSX representation of the RegisterUserForm component
+ */
 function RegisterUserForm() {
     const { handleSubmit, control } = useForm();
     

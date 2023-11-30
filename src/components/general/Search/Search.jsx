@@ -1,30 +1,34 @@
-import { displaySearch } from '../../../functions/displaySearch/displaySearch.jsx'
 import { useState } from 'react';
 import { venueUrl } from '../../../variables/api.jsx'
 import DisplaySearchResult from '../DisplaySearchResult/DisplaySearchResult.jsx';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * Form to search for venues and run DisplaySearchResult component
+ * @component
+ * @returns {React.Component} returns the Search component
+ */
 function Search() {
     const [ searchQuery, setSearchQuery ] = useState('');
     const [ searchResult, setSearchResult ] = useState([]);
 
+    // Handle key-up event in the search input
     function handleKeyUp(search) {
+        // Filters the search results based on the user's input and updates the SearchResult state.
         const filteredSearch = search.filter((venue) => {
             return venue.name.toLowerCase().includes(searchQuery.toLowerCase())
         })
 
         setSearchResult(filteredSearch);
-        displaySearch(searchResult);
     }
-
+    // Handle the search operation, fetches venue data from the API and triggers the key-up handler
     async function handleSearch() {
         try {
             const response = await fetch(venueUrl);
             const result = await response.json();
 
             handleKeyUp(result);
-            displaySearch(searchResult)
         } catch(error) {
             toast.error('Something went wrong, please try again.', {
                 position: toast.POSITION.TOP_CENTER,

@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom'
 import LoginForm from '../components/auth/LoginUser/LoginUser';
 import { Helmet } from 'react-helmet';
 
+/**
+ * Login component that represents the login page of the application
+ * @returns {JSX.Element}} Login page
+ */
 function Login() {
     return (
       <div className="py-10 px-4 bg-gradient-to-t from-[#222222] to-[#222222aa] pb-80">

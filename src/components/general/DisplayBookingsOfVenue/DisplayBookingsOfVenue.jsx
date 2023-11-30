@@ -2,8 +2,13 @@ import { username } from '../../../variables/localStorage.jsx'
 import Calendar from 'react-calendar';
 import BookingForm from '../../user/BookingForm/BookingForm.jsx';
 import 'react-calendar/dist/Calendar.css'
-import FetchBookings from '../GetBookingsOfSpecificVenue/GetBookingsOfSpecificVenue.jsx';
+import FetchBookings from '../../../hooks/GetBookingsOfSpecificVenue/GetBookingsOfSpecificVenue.jsx';
 
+/**
+ * Fetch bookings of a venue and display the result if the API call is successful
+ * @component
+ * @returns {JSX.Element}} returns the JSX representation of the DisplayBookingsOfVenue component
+ */
 function DisplayBookingsOfVenue() {
     const { events, bookings, owner, loading, throwError } = FetchBookings();
     if(loading) {

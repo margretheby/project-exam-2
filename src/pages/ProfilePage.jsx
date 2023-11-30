@@ -2,6 +2,10 @@ import DisplayProfile from "../components/user/DisplayProfile/DisplayProfile";
 import { Helmet } from 'react-helmet';
 import { username } from "../variables/localStorage";
 
+/**
+ * Profile component that represents the profile page of the application
+ * @returns {JSX.Element}} Profile page
+ */
 function Profile() {
     return (
       <div className="py-10 px-4 bg-gradient-to-t from-[#222222] to-[#222222aa]">

@@ -1,4 +1,4 @@
-import useApi from "../../../hooks/useApi";
+import useApi from "../../../hooks/useApi/useApi";
 import { venueUrl } from '../../../variables/api.jsx'
 import { username } from "../../../variables/localStorage";
 import { useState } from "react";
@@ -9,15 +9,22 @@ import DeleteVenueButton from "../../manager/DeleteVenue/DeleteVenue";
 import ImageGallery from "react-image-gallery";
 import { Helmet } from 'react-helmet';
 
+/**
+ * Fetch data on a specific venue and display the result
+ * @component
+ * @returns {JSX.Element}} returns the JSX representation of the DisplaySpecificVenue component
+ */
 function DisplaySpecificVenue() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     let { id } = useParams();
     const { data, loading, throwError } = useApi(`${venueUrl}/${id}?_bookings=true&_owner=true`);
 
+    // Open modal for updating the venue
     const openModal = () => {
       setModalIsOpen(true);
     };
   
+    // Close modal for updating the venue
     const closeModal = () => {
       setModalIsOpen(false);
     };
@@ -69,7 +76,7 @@ function DisplaySpecificVenue() {
                             <div className="sm:flex sm:justify-center sm:gap-5 sm:mt-5">
                                 <div>
                                     <div>
-                                        {(media.length > 1 ? <ImageGallery autoPlay={true} items={
+                                        {(media.length > 1 ? <ImageGallery items={
                                             media.map((image) => {
                                                 const imageObject = {original: image}
                                                 return imageObject;
