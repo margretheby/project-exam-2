@@ -1,4 +1,4 @@
-import RegisterUserForm from "../components/RegisterUserForm/RegisterUserForm";
+import RegisterUserForm from "../components/auth/RegisterUserForm/RegisterUserForm";
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 

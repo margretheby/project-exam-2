@@ -1,4 +1,4 @@
-import CreateVenueForm from "../components/CreateVenueForm/CreateVenueForm";
+import CreateVenueForm from "../components/manager/CreateVenueForm/CreateVenueForm";
 import { Helmet } from 'react-helmet';
 
 function NewVenue() {

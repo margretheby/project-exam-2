@@ -1,4 +1,4 @@
-import DisplaySpecificVenue from "../components/DisplaySpecificVenue/DisplaySpecificVenue";
+import DisplaySpecificVenue from "../components/general/DisplaySpecificVenue/DisplaySpecificVenue";
 import { Helmet } from 'react-helmet';
 
 function SpecificVenue() {

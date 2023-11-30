@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import LoginForm from '../components/LoginUser/LoginUser';
+import LoginForm from '../components/auth/LoginUser/LoginUser';
 import { Helmet } from 'react-helmet';
 
 function Login() {
