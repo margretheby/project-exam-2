@@ -75,20 +75,20 @@ function DisplaySpecificVenue() {
                         <div className="sm:flex sm:flex-col">
                             <div className="sm:flex sm:justify-center sm:gap-5 sm:mt-5">
                                 <div>
-                                    <div>
+                                    <div className='sm:w-80 lg:w-96'>
                                         {(media.length > 1 ? <ImageGallery items={
                                             media.map((image) => {
                                                 const imageObject = {original: image}
                                                 return imageObject;
                                             })
                                         } /> : 
-                                            <img src={media} alt={name} className='w-56 sm:w-[100%] lg:w-96' />    
+                                            <img src={media} alt={name} className='sm:w-[100%] lg:w-96' />    
                                          )}
 
                                     </div>
                                 </div>
                                 <div className="flex flex-col items-center">
-                                    <div className="w-56 sm:w-72">
+                                    <div className="max-w-fit sm:w-72">
                                         <h1 className="text-xl text-[#FFEC58] text-center sm:text-left sm:text-3xl sm:mb-4">{name}</h1>
                                         <p className="text-sm">{description}</p>
                                         <div className="text-center sm:text-left">
@@ -102,7 +102,7 @@ function DisplaySpecificVenue() {
                             </div>
                             <div className="flex flex-col items-center sm:flex-row sm:justify-center sm:items-start sm:gap-10 md:gap-20 lg:gap-24">
                                 <div className="sm:order-2 md:justify-start">
-                                    <div className="w-56 sm:w-72">
+                                    <div className=" text-center sm:w-72">
                                         <h3 className="text-xl text-[#FFEC58] text-center sm:mt-5">More information</h3>
                                         <div className="flex justify-between text-sm">
                                             <p className="md:text-lg">Max guests: </p>
@@ -113,7 +113,7 @@ function DisplaySpecificVenue() {
                                             <p className="md:text-lg">{rating}</p>
                                         </div>
                                     </div>
-                                    <div className="w-56 sm:w-72">
+                                    <div className="sm:w-72">
                                         <div className="flex justify-between my-5 text-sm">
                                             <p className="mr-2">Location: </p>
                                             <div className="text-right">
@@ -124,7 +124,7 @@ function DisplaySpecificVenue() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="w-56 sm:w-72">
+                                    <div className="w-64 sm:w-72">
                                         <div className="flex justify-between text-sm">
                                             <p className="mr-2">Wifi: </p>
                                             <p> {wifi ? 'yes' : 'no'}</p>

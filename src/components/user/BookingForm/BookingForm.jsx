@@ -36,7 +36,7 @@ function BookingForm() {
     }
 
     return (
-        <div className='w-56 mt-3'>
+        <div className='mt-3 sm:w-72'>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div className='flex justify-between'>
                 <label htmlFor="dateFrom">From:</label>
