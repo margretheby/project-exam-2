@@ -46,8 +46,15 @@ The company CTO has set the following technical restrictions:
 - Must use an approved Planning Application
 
 ## Built with
-- React
 - Tailwind
+- React, including:  
+    - React Calendar
+    - React Helmet
+    - React Hook Form
+    - React Image Gallery
+    - React Modal
+    - React Router Dom
+    - React Toastify
 
 ## Getting started
 ### Installing
